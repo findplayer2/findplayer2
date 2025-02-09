@@ -71,3 +71,28 @@ function showSunnyBackground() {
         chosenCharacter.classList.remove("hidden"); // Show chosen character (boy/girl)
     }
 }
+// On click of Start button, add cryptic hints
+document.getElementById("start-button").addEventListener("click", () => {
+    const name = document.getElementById("player-name").value;
+    const city = document.getElementById("player-city").value;
+
+    if (!name || !city) {
+        alert("Please enter your name and city.");
+        return;
+    }
+
+    // Add player details to the list for debug
+    const playerList = document.getElementById("player-list");
+    const newPlayer = document.createElement("li");
+    newPlayer.textContent = `Player: ${name}, City: ${city}`;
+    playerList.appendChild(newPlayer);
+
+    // Show trace log
+    document.getElementById("trace-log").classList.remove("hidden");
+
+    // Transition to the next screen
+    setTimeout(() => {
+        document.getElementById("welcome-screen").classList.add("hidden");
+        document.getElementById("character-selection").classList.remove("hidden");
+    }, 2000); // Delay for cryptic trace log effect
+});
