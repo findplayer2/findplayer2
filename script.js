@@ -153,5 +153,32 @@ function applyGlitchEffectLater() {
 
     setTimeout(() => addGlitchEffect(storyText), 3000);
 }
+function displayScene(index) {
+    let scene = scenes[index];
+
+    sceneText.innerHTML = scene.text;
+    choicesContainer.innerHTML = "";
+    continueBtn.classList.add("hidden");
+
+    if (scene.choices.length > 0) {
+        scene.choices.forEach(choice => {
+            let choiceBtn = document.createElement("button");
+            choiceBtn.textContent = choice.text;
+            choiceBtn.addEventListener("click", () => {
+                displayScene(choice.next);
+            });
+            choicesContainer.appendChild(choiceBtn);
+        });
+    } else {
+        continueBtn.textContent = scene.buttonText || "CONTINUE";
+        continueBtn.classList.remove("hidden");
+    }
+
+    // 📌 Paste this line here!
+    if (index >= 5) { // Start glitching text in later scenes
+        applyGlitchEffectLater();
+    }
+}
+
 
 
