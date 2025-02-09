@@ -19,11 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let questionSelected = "";
     let userAnswer = "";
 
+    // 🔥 Start Game After Loading
     setTimeout(() => {
         loadingScreen.classList.add("hidden");
         usernameScreen.classList.remove("hidden");
     }, 3000);
 
+    // 📝 Username Input
     usernameSubmit.addEventListener("click", () => {
         playerName = usernameInput.value.trim();
         if (!playerName) {
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         securityScreen.classList.remove("hidden");
     });
 
+    // 🔥 Security Question Answer
     securitySubmit.addEventListener("click", () => {
         questionSelected = securityQuestion.value;
         userAnswer = securityAnswer.value.trim();
@@ -44,12 +47,36 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // 💀 Simulate Poll Logging (Hidden)
+        // 💀 Simulate Hidden Poll Logging (You Will See in Console)
         console.log(`POLL LOG: Question "${questionSelected}", Answer: "${userAnswer}"`);
 
         securityScreen.classList.add("hidden");
         horrorScreen.classList.remove("hidden");
 
         setTimeout(() => {
-            horrorText.innerHTML = `"U
+            horrorText.innerHTML = `"USERNAME TAKEN."<br> "WELCOME BACK."<br> "YOU HAVE BEEN HERE BEFORE."`;
+            continueBtn.classList.remove("hidden");
+        }, 2000);
+    });
 
+    // 👁️ "Fate is Watching" Popup
+    setTimeout(() => {
+        popupMessage.classList.remove("hidden");
+        setTimeout(() => {
+            popupMessage.classList.add("hidden");
+        }, 3000);
+    }, 10000);
+
+    // 🎵 Auto-Start Music on Click
+    document.body.addEventListener("click", function playMusic() {
+        let musicIframe = document.getElementById("background-music");
+
+        let originalSrc = musicIframe.src;
+        musicIframe.src = ""; 
+        setTimeout(() => {
+            musicIframe.src = originalSrc;
+        }, 500);
+
+        document.body.removeEventListener("click", playMusic);
+    }, { once: true });
+});
