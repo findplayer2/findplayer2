@@ -7,6 +7,7 @@ const proceedBtn = document.getElementById('proceed-button');
 const storyText = document.getElementById('story-text');
 const pickUpBtn = document.getElementById('pick-up-btn');
 const leaveBtn = document.getElementById('leave-btn');
+const choiceResult = document.getElementById('choice-result');
 
 // Loading screen logic – triggered by the first click
 loadingScreen.addEventListener('click', () => {
@@ -32,8 +33,6 @@ startButton.addEventListener('click', () => {
 document.querySelectorAll('.choice-button').forEach(button => {
   button.addEventListener('click', (e) => {
     const choice = e.target.dataset.choice;
-    const choiceResult = document.getElementById('choice-result');
-
     if (choice === 'everything') {
       choiceResult.textContent = '"No, you don’t."';
     } else if (choice === 'nothing') {
@@ -107,4 +106,5 @@ proceedBtn.addEventListener('click', () => {
     proceedBtn.style.display = 'inline'; // Show the button one last time
   }, 3000); // Final message before closure
 });
+
 
