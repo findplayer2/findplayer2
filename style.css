@@ -78,3 +78,13 @@ button {
         transform: translateX(0);
     }
 }
+@font-face {
+    font-family: 'G.B.Boot';
+    src: url('G.B.Boot.ttf');
+}
+
+#loading-bar {
+    font-family: 'G.B.Boot', monospace;
+    font-size: 20px;
+    color: lime;
+}
