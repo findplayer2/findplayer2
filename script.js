@@ -106,3 +106,9 @@ function nextDialogue() {
         document.getElementById('dialogue-box').style.display = 'none';
     }
 }
+function triggerGlitch() {
+    document.getElementById('dialogue-text').classList.add('glitch');
+    setTimeout(() => {
+        document.getElementById('dialogue-text').classList.remove('glitch');
+    }, 3000);
+}
