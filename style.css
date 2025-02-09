@@ -24,16 +24,4 @@ body {
     100% { transform: translate(0, 0); }
 }
 
-/* Popup Message */
-#popup-message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 0, 0, 0.8);
-    padding: 10px;
-    font-size: 18px;
-    border: 1px solid white;
-}
-
 
