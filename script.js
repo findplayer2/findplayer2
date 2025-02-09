@@ -1,13 +1,30 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const loginScreen = document.getElementById("login-screen");
-    const usernameInput = document.getElementById("username");
-    const passwordInput = document.getElementById("password");
-    const loginButton = document.getElementById("login-btn");
-    const loginMessage = document.getElementById("login-message");
-    const messageScreen = document.getElementById("message-screen");
-    const messageText = document.getElementById("message-text");
-    const music = document.getElementById("background-music");
-    const heartbeat = document.getElementById("heartbeat");
+document.addEventListener("DOMContentLoaded", function () {
+    const playerNameInput = document.getElementById("player-name");
+    const startButton = document.getElementById("start-button");
+    const welcomeScreen = document.getElementById("welcome-screen");
+    const choicesScreen = document.getElementById("choices-screen");
+
+    startButton.addEventListener("click", () => {
+        let playerName = playerNameInput.value.trim();
+        if (!playerName) {
+            alert("Enter your name. It matters.");
+            return;
+        }
+
+        console.log(`Username entered: ${playerName}`); // Debugging
+
+        // Hide username screen, go to choices
+        welcomeScreen.classList.add("hidden");
+        choicesScreen.classList.remove("hidden");
+
+        // Subtle glitch when entering username
+        setTimeout(() => {
+            document.body.classList.add("glitch");
+            setTimeout(() => document.body.classList.remove("glitch"), 300);
+        }, 500);
+    });
+});
+
     const trainSound = document.getElementById("train-sound");
 
     let messageIndex = 0;
