@@ -120,5 +120,17 @@ document.addEventListener("DOMContentLoaded", function () {
     width="0" height="0" frameBorder="0"
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
 </iframe>
+document.body.addEventListener("click", function playMusic() {
+    let musicIframe = document.getElementById("background-music");
+
+    // Reloading the iframe tricks the browser into playing
+    let originalSrc = musicIframe.src;
+    musicIframe.src = ""; 
+    setTimeout(() => {
+        musicIframe.src = originalSrc;
+    }, 500);
+
+    document.body.removeEventListener("click", playMusic);
+}, { once: true }); // Only runs once
 
 
