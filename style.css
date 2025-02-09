@@ -6,45 +6,34 @@ body {
     padding: 20px;
 }
 
-#game-container {
-    width: 60%;
-    margin: auto;
+/* 💀 Hide screens initially */
+.hidden { display: none; }
+
+/* 👁️ Glitch Text Effect */
+.glitch-text {
     font-size: 20px;
-    line-height: 1.8;
+    text-shadow: 2px 2px red, -2px -2px blue;
+    animation: glitch 0.5s infinite alternate;
 }
 
-/* Hidden elements */
-.hidden {
-    display: none;
-}
-
-/* Glitch effect */
 @keyframes glitch {
-    0% { text-shadow: 2px 2px red; }
-    25% { text-shadow: -2px -2px blue; }
-    50% { text-shadow: 3px 3px green; }
-    75% { text-shadow: -3px -3px purple; }
-    100% { text-shadow: 1px -1px cyan; }
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-2px, 2px); }
+    50% { transform: translate(2px, -2px); }
+    75% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0, 0); }
 }
 
-.glitch {
-    animation: glitch 0.15s infinite;
-}
-
-/* Button Styling */
-button {
-    background: transparent;
-    border: 2px solid white;
-    color: white;
-    font-size: 18px;
+/* 👁️ Popup Message */
+#popup-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 0, 0, 0.8);
     padding: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-button:hover {
-    background: white;
-    color: black;
+    font-size: 18px;
+    border: 1px solid white;
 }
 
 
