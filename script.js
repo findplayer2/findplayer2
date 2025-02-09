@@ -1,133 +1,71 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const storyText = document.getElementById("story-text");
-    const choicesContainer = document.getElementById("choices-container");
-    const continueBtn = document.getElementById("continue-btn");
+    const loginScreen = document.getElementById("login-screen");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const loginButton = document.getElementById("login-btn");
+    const loginMessage = document.getElementById("login-message");
+    const messageScreen = document.getElementById("message-screen");
+    const messageText = document.getElementById("message-text");
 
-    let currentScene = 0;  // Keeps track of the scene index
-
-    // Story scenes in order
-    const storyScenes = [
-        {
-            text: `"WELCOME BACK." <br> "YOU HAVE BEEN HERE BEFORE." <br> "YOU ALWAYS COME BACK." <br> "WHY?"`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `"WHY DID YOU COME BACK?" <br> [Static. A faint breathing sound.]`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `"How much do you remember?"`,
-            buttonText: "",
-            choices: [
-                { text: `"I remember everything."`, next: 3 },
-                { text: `"I don’t remember anything."`, next: 3 },
-                { text: `"What is this?"`, next: 3 }
-            ]
-        },
-        {
-            text: `"No, you don’t." <br> "Not yet."`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `A Rubik’s Cube sits on a bench. Old, battered. Familiar.`,
-            buttonText: "",
-            choices: [
-                { text: `"Pick up the Cube"`, next: 5 }
-            ]
-        },
-        {
-            text: `"Oh. It’s you." <br> "I wasn’t expecting you." <br> "You left, didn’t you?" <br> "But here you are."`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `"Two players. That’s how it always starts." <br> "They solve the Cube. They unlock the game." <br> "One disappears." <br> "The other follows."`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `"Wait." <br> "Something’s wrong." <br> [The train station darkens. The sky cracks.]`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `"Pairs of kids who vanished." <br> "Every one of them played the game." <br> "Every one of them disappeared."`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `"This isn’t right." <br> "You were already erased." <br> "So why are you still here?"`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `"The pattern is failing." <br> "The game is breaking." <br> "You shouldn’t exist." <br> "But you do."`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `"It doesn’t matter." <br> "The train is still moving." <br> "You know how this ends."`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `A slip of paper inside the Cube. <br> "DON’T PLAY. DON’T TRUST IT. GET OUT BEFORE IT’S TOO LATE."`,
-            buttonText: "CONTINUE",
-            choices: []
-        },
-        {
-            text: `"But they don’t listen." <br> "They never do." <br> "[LOADING… PLEASE WAIT.]"`,
-            buttonText: "",
-            choices: []
-        }
+    let messageIndex = 0;
+    let messages = [
+        "Uh oh...",
+        "You're not supposed to be here.",
+        "You were here before.",
+        "You do not remember.",
+        "Somewhere, someone is still playing.",
+        "No one had left yet.",
+        "You ask how the story ends.",
+        "Somewhere, a train moves through the night.",
+        "Somewhere, someone left.",
+        "Somewhere, someone stayed.",
+        "The code replies: 'You do not want to know.'",
+        "But you will.",
+        "And then you will forget.",
+        "And then you will play again.",
+        "WELCOME BACK."
     ];
 
-    // Function to display story text
-    function displayScene(index) {
-        let scene = storyScenes[index];
+    // 📌 Handle Login Attempt
+    loginButton.addEventListener("click", function() {
+        let username = usernameInput.value.trim();
+        let password = passwordInput.value.trim();
 
-        storyText.innerHTML = scene.text;
-        choicesContainer.innerHTML = "";
-        continueBtn.classList.add("hidden");
-
-        if (scene.choices.length > 0) {
-            scene.choices.forEach(choice => {
-                let choiceBtn = document.createElement("button");
-                choiceBtn.textContent = choice.text;
-                choiceBtn.addEventListener("click", () => {
-                    displayScene(choice.next);
-                });
-                choicesContainer.appendChild(choiceBtn);
-            });
-        } else {
-            continueBtn.textContent = scene.buttonText;
-            if (scene.buttonText !== "") {
-                continueBtn.classList.remove("hidden");
-            }
+        if (username === "" || password === "") {
+            loginMessage.textContent = "Both fields are required.";
+            loginMessage.classList.remove("hidden");
+            return;
         }
 
-        // Add glitch effect randomly
-        if (Math.random() > 0.8) {
-            storyText.classList.add("glitch");
-            setTimeout(() => {
-                storyText.classList.remove("glitch");
-            }, 1000);
+        // Simulate "Username Taken"
+        loginMessage.textContent = "Username taken...";
+        loginMessage.classList.remove("hidden");
+
+        // Wait and transition to creepy messages
+        setTimeout(() => {
+            loginScreen.classList.add("hidden");
+            messageScreen.classList.remove("hidden");
+            displayNextMessage();
+        }, 2000);
+    });
+
+    // 📌 Display Horror Messages One by One
+    function displayNextMessage() {
+        if (messageIndex < messages.length) {
+            messageText.innerHTML = messages[messageIndex];
+            messageIndex++;
+        } else {
+            messageText.innerHTML = "WELCOME BACK.";
         }
     }
 
-    // Initial scene
-    displayScene(0);
-
-    // Continue button functionality
-    continueBtn.addEventListener("click", () => {
-        currentScene++;
-        if (currentScene < storyScenes.length) {
-            displayScene(currentScene);
-        }
+    // 📌 Click to Reveal Next Message
+    messageScreen.addEventListener("click", () => {
+        displayNextMessage();
     });
+});
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const musicIframe = document.getElementById("background-music");
 
