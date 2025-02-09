@@ -3,29 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Player Two Is Online</title>
+  <title>The Story Unfolds</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="game-container">
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="screen">
-      <p id="loading-text" class="blinking">LOADING... PLEASE WAIT</p>
+  <!-- Story Sequence -->
+  <div id="story-container">
+    <h1 id="story-title">The Game Begins</h1>
+    <p id="story-text">A Rubik’s Cube sits on a bench. Old, battered. Familiar.</p>
+    <div id="story-choices">
+      <button class="choice-button" data-choice="pick-up">Pick up the Cube</button>
+      <button class="choice-button disabled">Leave it (Unavailable)</button>
     </div>
-
-    <!-- Dialogue Screen -->
-    <div id="dialogue-screen" class="screen hidden">
-      <div id="glitch-overlay" class="hidden"></div>
-      <p id="dialogue-text"></p>
-      <div id="choices" class="hidden"></div>
-      <button id="continue-button" class="hidden">Continue</button>
-    </div>
-
-    <!-- End Screen -->
-    <div id="end-screen" class="screen hidden">
-      <p id="end-text" class="glitch-effect"></p>
-    </div>
+    <p id="response-text" style="display: none;"></p>
+    <button id="next-sequence" style="display: none;">Next</button>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
