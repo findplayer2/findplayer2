@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ SCRIPT LOADED SUCCESSFULLY"); // Debugging
+
+    // Get Screens
     const loadingScreen = document.getElementById("loading-screen");
     const usernameScreen = document.getElementById("username-screen");
     const securityScreen = document.getElementById("security-screen");
     const horrorScreen = document.getElementById("horror-screen");
     const popupMessage = document.getElementById("popup-message");
 
+    // Inputs & Buttons
     const usernameInput = document.getElementById("username-input");
     const usernameSubmit = document.getElementById("username-submit");
 
@@ -14,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const horrorText = document.getElementById("horror-text");
     const continueBtn = document.getElementById("continue-btn");
+
+    const music = document.getElementById("background-music");
 
     let playerName = "";
     let questionSelected = "";
@@ -47,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // 💀 Simulate Hidden Poll Logging (You Will See in Console)
+        // 💀 Log Poll Result Privately (Not Visible to User)
         console.log(`POLL LOG: Question "${questionSelected}", Answer: "${userAnswer}"`);
 
         securityScreen.classList.add("hidden");
@@ -59,6 +65,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 2000);
     });
 
+    // 🎵 Start Music on First Click
+    document.body.addEventListener("click", function playMusic() {
+        music.play();
+        document.body.removeEventListener("click", playMusic);
+    });
+
     // 👁️ "Fate is Watching" Popup
     setTimeout(() => {
         popupMessage.classList.remove("hidden");
@@ -66,17 +78,4 @@ document.addEventListener("DOMContentLoaded", function () {
             popupMessage.classList.add("hidden");
         }, 3000);
     }, 10000);
-
-    // 🎵 Auto-Start Music on Click
-    document.body.addEventListener("click", function playMusic() {
-        let musicIframe = document.getElementById("background-music");
-
-        let originalSrc = musicIframe.src;
-        musicIframe.src = ""; 
-        setTimeout(() => {
-            musicIframe.src = originalSrc;
-        }, 500);
-
-        document.body.removeEventListener("click", playMusic);
-    }, { once: true });
 });
