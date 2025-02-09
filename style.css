@@ -1,76 +1,45 @@
-/* 🎭 General Styles */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 body {
-  margin: 0;
-  padding: 0;
-  background: black;
-  color: white;
-  font-family: 'Courier New', monospace;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  transition: background-color 0.2s;
+    background: black;
+    color: white;
+    font-family: 'VT323', monospace;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-.screen {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+#game-container {
+    width: 80%;
+    max-width: 600px;
 }
 
-#login-screen {
-  display: flex;
-}
-
-input {
-  margin: 10px;
-  padding: 10px;
-  background: black;
-  color: white;
-  border: 1px solid white;
-  text-align: center;
-  font-size: 18px;
-}
-
-button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  background: red;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-button:hover {
-  background: darkred;
+#text-box {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border: 2px solid white;
+    font-size: 22px;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
-/* 👾 GLITCH EFFECT */
+/* Glitch Effect */
 @keyframes glitch {
-  0% { text-shadow: 2px 2px red, -2px -2px blue; }
-  25% { text-shadow: -2px 2px red, 2px -2px blue; }
-  50% { text-shadow: 2px -2px red, -2px 2px blue; }
-  75% { text-shadow: -2px -2px red, 2px 2px blue; }
-  100% { text-shadow: 2px 2px red, -2px -2px blue; }
+    0% { transform: translate(0); opacity: 1; }
+    20% { transform: translate(-2px, 2px); opacity: 0.8; }
+    40% { transform: translate(2px, -2px); opacity: 1; }
+    60% { transform: translate(-1px, 1px); opacity: 0.9; }
+    80% { transform: translate(1px, -1px); opacity: 1; }
+    100% { transform: translate(0); opacity: 1; }
 }
 
 .glitch {
-  animation: glitch 0.2s infinite alternate;
-}
-
-/* 🔊 Position the Spotify Player */
-iframe {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+    animation: glitch 0.3s infinite;
 }
 
