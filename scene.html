@@ -76,3 +76,38 @@ there is no locker #42.`;\
     <button onclick="nextDialogue()">Next</button>
 </div>
 <iframe src="https://open.spotify.com/embed/track/YOUR_TRACK_ID" width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Novel - Scene</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <h1 id="loading-text">LOADING...</h1>
+    <div id="progress-bar-container">
+      <div id="progress-bar"></div>
+    </div>
+    <p id="percent-text">0%</p>
+  </div>
+
+  <!-- Main Game Scene -->
+  <div id="game-scene" style="display: none;">
+    <!-- Background Image -->
+    <img id="background" src="./DALL·E_summer_forest.webp" alt="Summer Night Forest">
+
+    <!-- Character -->
+    <img id="character" src="./character.png" alt="Character">
+
+    <!-- Textbox -->
+    <div id="textbox">
+      <p id="message-text">I’ve been waiting for you.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
