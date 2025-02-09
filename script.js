@@ -128,4 +128,24 @@ document.addEventListener("DOMContentLoaded", function() {
             displayScene(currentScene);
         }
     });
+document.addEventListener("DOMContentLoaded", function() {
+    const musicIframe = document.getElementById("background-music");
+
+    // Attempt to play automatically
+    function startMusic() {
+        let iframeSrc = musicIframe.src;
+        musicIframe.src = "";  // Reset src (triggers reload)
+        setTimeout(() => {
+            musicIframe.src = iframeSrc; // Restore src (forces autoplay)
+        }, 500);
+    }
+
+    // Play when user interacts (autoplay restriction bypass)
+    document.body.addEventListener("click", () => {
+        startMusic();
+    }, { once: true }); // Runs only once
+
+    // Start immediately if browser allows
+    startMusic();
 });
+
