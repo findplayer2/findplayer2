@@ -96,3 +96,10 @@ document.getElementById("start-button").addEventListener("click", () => {
         document.getElementById("character-selection").classList.remove("hidden");
     }, 2000); // Delay for cryptic trace log effect
 });
+// After choosing boy or girl
+document.getElementById("choose-girl").addEventListener("click", () => {
+    document.getElementById("character-selection").classList.add("hidden");
+    document.getElementById("nostalgic-scene").classList.remove("hidden");
+    document.getElementById("girl-character").classList.remove("hidden");
+});
+
