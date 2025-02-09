@@ -4,46 +4,48 @@ body {
     font-family: 'Courier New', monospace;
     text-align: center;
     padding: 20px;
-    overflow: hidden;
-    transition: background 0.2s ease-in-out;
+    transition: background 1s ease-in-out;
 }
 
-/* 👁️ Glitch Text Effect */
+/* Hide screens initially */
+.hidden { display: none; }
+
+/* Chatbox UI */
+.chatbox {
+    font-size: 18px;
+    background: rgba(30, 30, 30, 0.9);
+    padding: 10px;
+    border-left: 3px solid cyan;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+/* Subtle glitch text effect */
 .glitch-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px red, -2px -2px blue, 4px 4px black;
-    animation: glitch 0.3s infinite alternate;
+    font-size: 20px;
+    text-shadow: 1px 1px red, -1px -1px blue;
+    animation: glitch 1.5s infinite alternate;
 }
 
 @keyframes glitch {
     0% { transform: translate(0, 0); }
-    50% { transform: translate(-2px, 2px); text-shadow: 2px 2px red, -2px -2px blue; }
+    50% { transform: translate(1px, -1px); }
     100% { transform: translate(0, 0); }
 }
 
-/* 💀 Hidden Screens */
-.hidden { display: none; }
-
-/* 👁️ "Fate is Watching" Popup */
-#popup-message {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 0, 0, 0.8);
-    color: white;
+/* Error red text */
+.error-text {
+    color: red;
     font-weight: bold;
-    padding: 10px;
-    font-size: 18px;
-    border: 1px solid white;
-    animation: flickerText 1.5s infinite alternate;
+    text-shadow: 2px 2px black;
 }
 
-@keyframes flickerText {
-    0% { opacity: 1; }
-    50% { opacity: 0.1; }
-    100% { opacity: 1; }
-}
+/* Smooth button hover effect */
+button {
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border:
+
 
