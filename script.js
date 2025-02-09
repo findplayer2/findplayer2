@@ -1,22 +1,45 @@
-// script.js
-
-// Get DOM elements
-const startBtn = document.getElementById("start-btn");
+// DOM Elements
 const welcomeScreen = document.getElementById("welcome-screen");
-const sceneScreen = document.getElementById("scene-screen");
-const playerGreeting = document.getElementById("player-greeting");
+const characterSelection = document.getElementById("character-selection");
+const storyScene = document.getElementById("story-scene");
+const startBtn = document.getElementById("start-btn");
+const nextBtn = document.getElementById("next-btn");
+const usernameInput = document.getElementById("username");
+const dialogueBox = document.getElementById("dialogue-box");
+const playerNameSpan = document.getElementById("player-name");
+const selectButtons = document.querySelectorAll(".select-btn");
 
-// Event listener for "Start" button
+let playerName = "";
+let selectedCharacter = "";
+
+// Start the game
 startBtn.addEventListener("click", () => {
-    const username = document.getElementById("username").value.trim();
-
-    if (username === "") {
-        alert("Please enter your name!");
-        return;
-    }
-
-    // Update greeting and switch screens
-    playerGreeting.textContent = `Player 1: ${username}. Player 2: Searching...`;
-    welcomeScreen.style.display = "none";
-    sceneScreen.style.display = "flex";
+  playerName = usernameInput.value.trim();
+  if (!playerName) {
+    alert("Please enter your name.");
+    return;
+  }
+  welcomeScreen.classList.remove("active");
+  characterSelection.classList.add("active");
 });
+
+// Select character
+selectButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    selectedCharacter = e.target.dataset.character;
+    characterSelection.classList.remove("active");
+    storyScene.classList.add("active");
+    playerNameSpan.textContent = playerName;
+    loadStory();
+  });
+});
+
+// Advance story
+nextBtn.addEventListener("click", () => {
+  dialogueBox.textContent = `"Somewhere, a train is moving through the night. Your journey begins..."`;
+});
+
+// Initialize first scene
+window.onload = () => {
+  welcomeScreen.classList.add("active");
+};
