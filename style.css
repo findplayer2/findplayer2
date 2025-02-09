@@ -1,54 +1,44 @@
-// DOM elements
-const loadingScreen = document.getElementById('loading-screen');
-const welcomeScreen = document.getElementById('welcome-screen');
-const startButton = document.getElementById('start-button');
-const choicesScreen = document.getElementById('choices-screen');
-const proceedButton = document.getElementById('proceed-button');
-const storyContainer = document.getElementById('story-container');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player Two Is Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="screen">
+    <h1>You finally found me.</h1>
+    <p id="waiting-text">I was starting to think you wouldn’t.</p>
+  </div>
 
-// Click on the Loading Screen to Transition
-loadingScreen.addEventListener('click', () => {
-  loadingScreen.style.display = 'none'; // Hide the loading screen
-  welcomeScreen.style.display = 'flex'; // Show the welcome screen after click
-});
+  <!-- Welcome Screen (Username, City input) -->
+  <div id="welcome-screen" class="screen hidden">
+    <p id="real-check">"You’re still real, right? Don’t turn it off this time."</p>
+    <input type="text" id="player-name" placeholder="Enter your name..." />
+    <input type="text" id="player-city" placeholder="Enter your city..." />
+    <button id="start-button">Start</button>
+  </div>
 
-// Start Button Logic
-startButton.addEventListener('click', () => {
-  const playerName = document.getElementById('player-name').value.trim();
-  const playerCity = document.getElementById('player-city').value.trim();
+  <!-- Choices Screen -->
+  <div id="choices-screen" class="screen hidden">
+    <h2>How much do you remember?</h2>
+    <button class="choice-button" data-choice="everything">"I remember everything."</button>
+    <button class="choice-button" data-choice="nothing">"I don’t remember anything."</button>
+    <button class="choice-button" data-choice="what">"What is this?"</button>
+    <p id="choice-result"></p>
+    <button id="proceed-button" class="hidden">Continue</button>
+  </div>
 
-  if (!playerName || !playerCity) {
-    alert('Please enter both your name and city.');
-    return;
-  }
+  <!-- Story Sequences (We will show the "Rubik's Cube" scene, etc.) -->
+  <div id="story-container" class="screen hidden">
+    <p id="story-text">A Rubik’s Cube sits on a bench. Old, battered. Familiar.</p>
+    <button class="choice-button" data-choice="pick-up">Pick up the Cube</button>
+    <button class="choice-button" data-choice="leave">Leave it</button>
+  </div>
 
-  welcomeScreen.style.display = 'none'; // Hide the welcome screen
-  choicesScreen.style.display = 'block'; // Show the choices screen
-});
-
-// Choice Buttons Logic
-document.querySelectorAll('.choice-button').forEach(button => {
-  button.addEventListener('click', (e) => {
-    const choice = e.target.dataset.choice;
-    const resultText = document.getElementById('choice-result');
-
-    if (choice === 'everything') {
-      resultText.textContent = '"No, you don’t."';
-    } else if (choice === 'nothing') {
-      resultText.textContent = '"Not yet."';
-    } else if (choice === 'what') {
-      resultText.textContent = '"You’ll see."';
-    }
-
-    resultText.style.display = 'block'; // Show the result text
-    proceedButton.style.display = 'block'; // Show the "Continue" button
-  });
-});
-
-// Proceed Button Logic
-proceedButton.addEventListener('click', () => {
-  choicesScreen.style.display = 'none'; // Hide the choices screen
-  storyContainer.style.display = 'block'; // Show the story container (transition to next scene or content)
-});
-
+  <script src="script.js"></script>
+</body>
+</html>
 
