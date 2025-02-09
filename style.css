@@ -54,4 +54,55 @@ button:hover {
     color: black;
     border: 2px solid black;
 }
+@import url('https://fonts.cdnfonts.com/css/arcade-classic');
 
+body {
+    background-color: black;
+    color: white;
+    font-family: 'ArcadeClassic', sans-serif; /* 👾 Apply the Retro Font */
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* 🌑 PAGE TRANSITIONS - Each "Page" Appears One After Another */
+.page {
+    display: none; /* Hide all sections initially */
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* 🎭 GLITCH EFFECT (AFTER USERNAME TAKEN) */
+@keyframes glitch {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-1px, 1px); text-shadow: 2px 2px red; }
+    100% { transform: translate(0, 0); }
+}
+
+.glitch-text {
+    font-size: 20px;
+    font-weight: bold;
+    animation: glitch 1.5s infinite alternate;
+}
+
+/* 🚀 CONTINUE BUTTON STYLE */
+button {
+    background-color: black;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid red;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.1s;
+}
+
+button:hover {
+    background-color: red;
+    color: black;
+}
