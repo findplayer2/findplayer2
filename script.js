@@ -102,4 +102,7 @@ document.getElementById("choose-girl").addEventListener("click", () => {
     document.getElementById("nostalgic-scene").classList.remove("hidden");
     document.getElementById("girl-character").classList.remove("hidden");
 });
-
+<div id="nostalgic-music">
+    <iframe src="https://open.spotify.com/embed/track/6MP31DAVEGvrsMKDVm9o?utm_source=generator" 
+        width="100%" height="80" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+</div>
