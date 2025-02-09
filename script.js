@@ -148,4 +148,15 @@ document.addEventListener("DOMContentLoaded", function() {
     // Start immediately if browser allows
     startMusic();
 });
+const muteButton = document.getElementById("mute-music");
+
+muteButton.addEventListener("click", () => {
+    if (musicIframe.style.display === "none") {
+        musicIframe.style.display = "block";
+        muteButton.textContent = "🔇 Mute Music";
+    } else {
+        musicIframe.style.display = "none";
+        muteButton.textContent = "🔊 Play Music";
+    }
+});
 
