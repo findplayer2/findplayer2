@@ -24,7 +24,11 @@ body {
   display: none;
 }
 
-#choices button {
+#proceed-button {
+  display: none;
+}
+
+.choice-button {
   margin: 10px;
   padding: 10px 20px;
   background: #111;
@@ -34,7 +38,7 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-#choices button:hover {
+.choice-button:hover {
   background: #444;
   color: #fff;
 }
