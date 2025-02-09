@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Player Two Is Online</title>
+  <title>PLAYER TWO IS ONLINE</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Game Container -->
-  <div id="game-container">
-    <p id="story-text">LOADING... PLEASE WAIT.</p>
-    <div id="choices-container" class="hidden"></div>
-    <button id="continue-btn" class="hidden">Continue</button>
+  <!-- Username & Password Screen -->
+  <div id="login-screen" class="screen">
+    <h2>Enter Username & Password</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button id="login-btn">Login</button>
+    <p id="login-message" class="hidden"></p>
+  </div>
+
+  <!-- Eerie Message Screen (After "Username Taken") -->
+  <div id="message-screen" class="screen hidden">
+    <p id="message-text"></p>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
