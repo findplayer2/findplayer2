@@ -4,15 +4,16 @@ const welcomeScreen = document.getElementById('welcome-screen');
 const startButton = document.getElementById('start-button');
 const choicesScreen = document.getElementById('choices-screen');
 const proceedButton = document.getElementById('proceed-button');
+const choiceResult = document.getElementById('choice-result');
 const storyContainer = document.getElementById('story-container');
 
-// Simulate Loading Screen
-setTimeout(() => {
-  loadingScreen.style.display = 'none';
-  welcomeScreen.style.display = 'block';
-}, 3000); // 3-second loading screen
+// Loading screen logic – triggered by the first click
+loadingScreen.addEventListener('click', () => {
+  loadingScreen.style.display = 'none'; // Hide loading screen
+  welcomeScreen.style.display = 'flex'; // Show the welcome screen
+});
 
-// Start Button Logic
+// Start button to submit name and city
 startButton.addEventListener('click', () => {
   const playerName = document.getElementById('player-name').value.trim();
   const playerCity = document.getElementById('player-city').value.trim();
@@ -22,51 +23,43 @@ startButton.addEventListener('click', () => {
     return;
   }
 
-  welcomeScreen.style.display = 'none';
-  choicesScreen.style.display = 'block';
+  welcomeScreen.style.display = 'none'; // Hide welcome screen
+  choicesScreen.style.display = 'flex'; // Show choices screen
 });
 
-// Choice Buttons Logic
+// Choices screen logic
 document.querySelectorAll('.choice-button').forEach(button => {
   button.addEventListener('click', (e) => {
     const choice = e.target.dataset.choice;
-    const resultText = document.getElementById('choice-result');
-
     if (choice === 'everything') {
-      resultText.textContent = '"No, you don’t."';
+      choiceResult.textContent = '"No, you don’t."';
     } else if (choice === 'nothing') {
-      resultText.textContent = '"Not yet."';
+      choiceResult.textContent = '"Not yet."';
     } else if (choice === 'what') {
-      resultText.textContent = '"You’ll see."';
+      choiceResult.textContent = '"You’ll see."';
     }
 
-    resultText.style.display = 'block';
-    proceedButton.style.display = 'block';
+    choiceResult.style.display = 'block'; // Show the result text
+    proceedButton.style.display = 'block'; // Show the "Continue" button
   });
 });
 
-// Proceed Button Logic
+// Proceed button action
 proceedButton.addEventListener('click', () => {
-  window.location.href = 'scene.html'; // Go to scene.html
+  choicesScreen.style.display = 'none'; // Hide choices screen
+  storyContainer.style.display = 'flex'; // Show the next story sequence
 });
 
-  if (scene.next === null) {
-    continueButton.classList.add("hidden");
-    endScreen.style.display = "flex";
-    dialogueScreen.style.display = "none";
-    endText.textContent = scene.text;
-  }
-}
+// Story sequence logic
+document.querySelectorAll('#story-container .choice-button').forEach(button => {
+  button.addEventListener('click', (e) => {
+    const choice = e.target.dataset.choice;
+    if (choice === 'pick-up') {
+      alert("You picked up the Cube! Things are about to get strange...");
+    } else {
+      alert("You left the Cube. Maybe you’ll regret it.");
+    }
 
-continueButton.addEventListener("click", () => {
-  const scene = story[currentSceneIndex];
-  if (scene.next !== null) {
-    showScene(scene.next);
-  }
+    // You can then continue to the next part of the story
+  });
 });
-
-// Initialize Game
-setTimeout(() => {
-  startGame();
-  glitchOverlay.classList.remove("hidden");
-}, 3000); // Simulated loading time
