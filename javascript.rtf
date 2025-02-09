@@ -41,3 +41,9 @@ submitCustomization.addEventListener('click', () => {
         }, 3000);
     }, 2000);
 });
+// Wait for 3 seconds, then transition to the next page
+window.onload = function () {
+    setTimeout(function () {
+        window.location.href = "character_screen.html";  // Transition to the next screen
+    }, 3000);  // 3 seconds
+};
