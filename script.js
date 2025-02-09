@@ -98,3 +98,4 @@ proceedButton.addEventListener('click', () => {
     proceedButton.style.display = 'inline'; // Show the button one last time
   }, 3000); // Wait for the final message
 });
+document.addEventListener("DOMContentLoaded", function() { /* Your code here */ });
