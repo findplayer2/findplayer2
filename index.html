@@ -1,40 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PLAYER TWO IS ONLINE</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYER TWO IS ONLINE</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="game-container">
+        <div id="text-box">
+            <p id="game-text"></p>
+        </div>
+        <div id="choices-container"></div>
+        <button id="continue-btn" class="hidden">CONTINUE</button>
+    </div>
 
-  <!-- 🔊 Spotify Music (Your Exact Song) -->
-  <iframe id="background-music" 
-    src="https://open.spotify.com/embed/track/66MP31dDAEV6rsmMKDVm9o?utm_source=generator"
-    width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-  </iframe>
+    <audio id="static-sound" src="sounds/static.mp3"></audio>
+    <audio id="train-sound" src="sounds/train-horn.mp3"></audio>
+    <audio id="whisper-sound" src="sounds/eerie-whispers.mp3"></audio>
 
-  <!-- 🔊 Hidden Background Audio (Heartbeat & Train Sounds) -->
-  <audio id="heartbeat" src="https://freesound.org/data/previews/466/466111_960701-lq.mp3" preload="auto"></audio>
-  <audio id="train-sound" src="https://freesound.org/data/previews/397/397847_5121236-lq.mp3" preload="auto"></audio>
-
-  <!-- 🖥 Username & Password Screen -->
-  <div id="login-screen" class="screen">
-    <h2>Enter Username & Password</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button id="login-btn">Login</button>
-    <p id="login-message" class="hidden glitch"></p>
-  </div>
-
-  <!-- 👁 Eerie Message Screen (After "Username Taken") -->
-  <div id="message-screen" class="screen hidden">
-    <p id="message-text" class="glitch"></p>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
 
 
   <script src="script.js"></script>
