@@ -1,58 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FindPlayer2</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player Two Is Online</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="game-container">
     <!-- Loading Screen -->
-    <div id="loading-screen">
-        <h1 id="loading-text">LOADING... PLEASE WAIT.</h1>
-        <p id="cursor-blink">_</p>
+    <div id="loading-screen" class="screen">
+      <p id="loading-text" class="blinking">LOADING... PLEASE WAIT</p>
     </div>
 
-    <!-- Welcome Screen -->
-    <div id="welcome-screen" class="hidden">
-        <h1 class="glitch">WELCOME BACK</h1>
-        <p class="glitch">"You have been here before."</p>
-        <p class="glitch">"Why did you come back?"</p>
-        <button id="continue-button">Continue</button>
+    <!-- Dialogue Screen -->
+    <div id="dialogue-screen" class="screen hidden">
+      <div id="glitch-overlay" class="hidden"></div>
+      <p id="dialogue-text"></p>
+      <div id="choices" class="hidden"></div>
+      <button id="continue-button" class="hidden">Continue</button>
     </div>
 
-    <!-- Train Station Scene -->
-    <div id="train-scene" class="hidden">
-        <h2 class="glitch">"The train is still moving."</h2>
-        <p class="glitch">"How much do you remember?"</p>
-        <div id="choices">
-            <button data-choice="remember-everything">"I remember everything."</button>
-            <button data-choice="remember-nothing">"I don’t remember anything."</button>
-            <button data-choice="what-is-this">"What is this?"</button>
-        </div>
+    <!-- End Screen -->
+    <div id="end-screen" class="screen hidden">
+      <p id="end-text" class="glitch-effect"></p>
     </div>
-
-    <!-- Notebook Scene -->
-    <div id="notebook-scene" class="hidden">
-        <h2 class="glitch">THE NAMES OF THE LOST</h2>
-        <ul id="name-list">
-            <!-- Names dynamically inserted here -->
-        </ul>
-        <p class="glitch">"Why is your name here?"</p>
-    </div>
-
-    <!-- Glitching Train Scene -->
-    <div id="glitch-scene" class="hidden">
-        <h2 class="glitch">"The game is breaking."</h2>
-        <p class="glitch">"You are the anomaly."</p>
-    </div>
-
-    <!-- Loop Back Scene -->
-    <div id="final-loop" class="hidden">
-        <h2 class="glitch">LOADING... PLEASE WAIT.</h2>
-        <p class="glitch">"Don’t trust it. Don’t play."</p>
-    </div>
-
-    <script src="script.js"></script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
