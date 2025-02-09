@@ -1,121 +1,58 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const loadingScreen = document.getElementById("loading-screen");
-    const usernameScreen = document.getElementById("username-screen");
-    const securityScreen = document.getElementById("security-screen");
-    const horrorScreen = document.getElementById("horror-screen");
-    const sceneContainer = document.getElementById("scene-container");
-    const sceneText = document.getElementById("scene-text");
-    const choicesContainer = document.getElementById("choices-container");
-    const continueBtn = document.getElementById("continue-btn");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYER TWO IS ONLINE</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+</head>
+<body>
 
-    const usernameInput = document.getElementById("username-input");
-    const usernameSubmit = document.getElementById("username-submit");
-    const securitySubmit = document.getElementById("security-submit");
-    const securityQuestion = document.getElementById("security-question");
-    const securityAnswer = document.getElementById("security-answer");
+    <!-- 💀 LOADING SCREEN -->
+    <div id="loading-screen" class="page active">
+        <p class="glitch-text">LOADING... PLEASE WAIT.</p>
+    </div>
 
-    let currentScene = 0;
-    let playerName = "";
-    let userAnswer = "";
+    <!-- 📝 USERNAME ENTRY -->
+    <div id="username-screen" class="page">
+        <p class="chatbox">Sign up. Enter your username. It matters.</p>
+        <input type="text" id="username-input" placeholder="Enter username...">
+        <button id="username-submit">CONTINUE</button>
+    </div>
 
-    // 🎭 Story Scenes
-    const scenes = [
-        { text: `"USERNAME TAKEN."<br> "WELCOME BACK."<br> "YOU HAVE BEEN HERE BEFORE."`, buttonText: "CONTINUE", choices: [] },
-        { text: `"I wasn’t expecting you." <br> "You left, didn’t you?" <br> [Static. A faint breathing sound.]`, buttonText: "CONTINUE", choices: [] },
-        { text: `"How much do you remember?"`, choices: [
-            { text: `"I remember everything."`, next: 4 },
-            { text: `"I don’t remember anything."`, next: 4 },
-            { text: `"What is this?"`, next: 4 }
-        ]},
-        { text: `"No, you don’t." <br> "Not yet."`, buttonText: "CONTINUE", choices: [] },
-        { text: `A Rubik’s Cube sits on a bench. Old, battered. Familiar.`, choices: [
-            { text: `"Pick up the Cube"`, next: 6 }
-        ]},
-        { text: `"You left, didn’t you?" <br> "You swore you wouldn’t." <br> "But here you are."`, buttonText: "CONTINUE", choices: [] },
-        { text: `"Two players. That’s how it always starts." <br> "They solve the Cube. They unlock the game."`, buttonText: "CONTINUE", choices: [] },
-        { text: `"One of them disappears." <br> "The other follows." <br> "Then they both vanish." <br> "No one remembers them."`, buttonText: "CONTINUE", choices: [] },
-        { text: `*Wait...* <br> *Something’s wrong.* <br> [The train station darkens. The sky cracks.]`, buttonText: "CONTINUE", choices: [] },
-        { text: `???: <br> "You shouldn’t be here." <br> "But you already know that, don’t you?"`, buttonText: "CONTINUE", choices: [] },
-        { text: `"Every time, two names." <br> "Pairs of kids who vanished." <br> "Every one of them played the game."`, buttonText: "CONTINUE", choices: [] },
-        { text: `"This isn’t right." <br> "You were already erased." <br> "You are not supposed to be here."`, buttonText: "CONTINUE", choices: [] },
-        { text: `"The pattern is failing." <br> "The game is breaking." <br> "You shouldn’t exist."`, buttonText: "CONTINUE", choices: [] },
-        { text: `"It doesn’t matter." <br> "The train is still moving." <br> "It always was." <br> "You know how this ends."`, buttonText: "CONTINUE", choices: [] },
-        { text: `[The whistle screams. The screen blinks to black.]`, buttonText: "CONTINUE", choices: [] },
-        { text: `[Static. Then, a new scene loads.] <br> [A convenience store. Two kids laughing. A Rubik’s Cube in their hands.]`, buttonText: "CONTINUE", choices: [] },
-        { text: `"Hey, check this out." <br> "I think I figured it out."`, buttonText: "CONTINUE", choices: [] },
-        { text: `*A slip of paper inside the Cube.* <br> *A message, handwritten. Your handwriting.*`, buttonText: "CONTINUE", choices: [] },
-        { text: `"DON’T PLAY. DON’T TRUST IT. GET OUT BEFORE IT’S TOO LATE."`, buttonText: "CONTINUE", choices: [] },
-        { text: `"But they don’t listen." <br> "They never do." <br> [LOADING… PLEASE WAIT.]`, buttonText: "CONTINUE", choices: [] }
-    ];
+    <!-- 🔐 SECURITY QUESTION -->
+    <div id="security-screen" class="page">
+        <p class="chatbox">Choose a security question.</p>
+        <select id="security-question">
+            <option value="lie">What was the first lie you told that ever came true?</option>
+            <option value="face">If someone else was wearing your face, would you want to know?</option>
+            <option value="missing">Where were you on the night you went missing?</option>
+        </select>
+        <input type="text" id="security-answer" placeholder="Type your answer...">
+        <button id="security-submit">CONTINUE</button>
+    </div>
 
-    function displayScene(index) {
-        currentScene = index;
-        let scene = scenes[index];
+    <!-- 🎭 HORROR SEQUENCE -->
+    <div id="horror-screen" class="page">
+        <div id="scene-container">
+            <p id="scene-text">LOADING... PLEASE WAIT.</p>
+            <div id="choices-container"></div>
+            <button id="continue-btn" class="hidden">CONTINUE</button>
+        </div>
+    </div>
 
-        sceneText.innerHTML = scene.text;
-        choicesContainer.innerHTML = "";
-        continueBtn.classList.add("hidden");
+    <!-- 🎵 HIDDEN MUSIC PLAYER -->
+    <iframe id="background-music" style="display: none;" 
+        src="https://open.spotify.com/embed/track/66MP31dDAEV6rsmMKDVm9o?utm_source=generator"
+        width="0" height="0" frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
 
-        if (scene.choices && scene.choices.length > 0) {
-            scene.choices.forEach(choice => {
-                let choiceBtn = document.createElement("button");
-                choiceBtn.textContent = choice.text;
-                choiceBtn.addEventListener("click", () => {
-                    displayScene(choice.next);
-                });
-                choicesContainer.appendChild(choiceBtn);
-            });
-        } else {
-            continueBtn.textContent = scene.buttonText || "CONTINUE";
-            continueBtn.classList.remove("hidden");
-        }
-    }
+    <!-- 📜 SCRIPT -->
+    <script src="script.js"></script>
 
-    continueBtn.addEventListener("click", function () {
-        if (currentScene < scenes.length - 1) {
-            displayScene(currentScene + 1);
-        }
-    });
-
-    // 🎭 Transition from Loading to Username Screen
-    setTimeout(() => {
-        loadingScreen.classList.add("hidden");
-        usernameScreen.classList.remove("hidden");
-    }, 3000);
-
-    // 📝 Handle Username Submission
-    usernameSubmit.addEventListener("click", () => {
-        playerName = usernameInput.value.trim();
-        if (!playerName) {
-            alert("Enter your name. It matters.");
-            return;
-        }
-
-        usernameScreen.classList.add("hidden");
-        securityScreen.classList.remove("hidden");
-    });
-
-    // 🔥 Handle Security Question Submission
-    securitySubmit.addEventListener("click", () => {
-        userAnswer = securityAnswer.value.trim();
-        if (!userAnswer) {
-            alert("Answer the question. It’s important.");
-            return;
-        }
-
-        console.log(`POLL LOG: Username: ${playerName}, Question: ${securityQuestion.value}, Answer: ${userAnswer}`);
-
-        securityScreen.classList.add("hidden");
-        horrorScreen.classList.remove("hidden");
-        sceneContainer.classList.remove("hidden");
-
-        displayScene(0); // Start the horror sequence
-    });
-
-    // 👁️ Random System Alert "FATE IS WATCHING"
-    setTimeout(() => {
-        alert("FATE IS WATCHING.");
-    }, Math.random() * 30000 + 10000); // Between 10s - 40s
-});
+</body>
+</html>
 
 
