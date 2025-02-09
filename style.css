@@ -24,22 +24,6 @@ body {
   display: none;
 }
 
-#loading-screen {
-  display: flex;
-  animation: fadeIn 3s;
-}
-
-#waiting-text {
-  font-size: 24px;
-  animation: fadeIn 3s;
-}
-
-#real-check {
-  font-size: 20px;
-  font-style: italic;
-  color: #bbb;
-}
-
 #choices button {
   margin: 10px;
   padding: 10px 20px;
@@ -55,21 +39,14 @@ body {
   color: #fff;
 }
 
-#end-text {
-  font-size: 24px;
-  text-shadow: 0px 0px 5px red, 0px 0px 5px blue;
-  animation: glitch 0.5s infinite alternate;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-@keyframes glitch {
-  0% { transform: skew(-2deg, -2deg); }
-  50% { transform: skew(2deg, 2deg); }
-  100% { transform: skew(-1deg, 1deg); }
+#story-text {
+  font-size: 20px;
+  padding: 20px;
+  animation: fadeIn 1s;
 }
-
 
