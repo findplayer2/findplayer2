@@ -8,28 +8,35 @@
 </head>
 <body>
 
-    <!-- 💀 LOADING SCREEN -->
+    <!-- 💀 Loading Screen -->
     <div id="loading-screen">
         <p class="glitch-text">LOADING... PLEASE WAIT.</p>
     </div>
 
-    <!-- 👁️ USERNAME ENTRY -->
+    <!-- 👁️ Username Entry -->
     <div id="username-screen" class="hidden">
-        <p class="glitch-text">Sign up. Enter your username. It matters.</p>
+        <p class="chatbox">Sign up. Enter your username. It matters.</p>
         <input type="text" id="username-input" placeholder="Enter username...">
         <button id="username-submit">CONTINUE</button>
     </div>
-    
-<!-- 🕵️ Clue Entry Screen -->
-<div id="clue-screen" class="hidden">
-    <p class="glitch-text">Where did you find the clue?</p>
-    <input type="text" id="clue-input" placeholder="e.g., Metro station in Vienna...">
-    <button id="clue-submit">CONTINUE</button>
-</div>
 
-    <!-- 🔥 SECURITY QUESTION -->
+    <!-- 🌍 Location Entry -->
+    <div id="location-screen" class="hidden">
+        <p class="chatbox">Where did you find the clue?</p>
+        <select id="location-select">
+            <option value="Vienna">Vienna</option>
+            <option value="Prague">Prague</option>
+            <option value="Budapest">Budapest</option>
+            <option value="Venice">Venice</option>
+            <option value="Berlin">Berlin</option>
+            <option value="London">London</option>
+        </select>
+        <button id="location-submit">CONTINUE</button>
+    </div>
+
+    <!-- 🔑 Security Question -->
     <div id="security-screen" class="hidden">
-        <p class="glitch-text">Choose a security question.</p>
+        <p class="chatbox">Choose a security question.</p>
         <select id="security-question">
             <option value="lie">What was the first lie you told that ever came true?</option>
             <option value="face">If someone else was wearing your face, would you want to know?</option>
@@ -39,24 +46,22 @@
         <button id="security-submit">CONTINUE</button>
     </div>
 
-    <!-- 💀 HORROR MESSAGE SCREEN -->
+    <!-- 🔥 Horror Message Screen -->
     <div id="horror-screen" class="hidden">
         <p id="horror-text"></p>
         <button id="continue-btn" class="hidden">CONTINUE</button>
     </div>
 
-    <!-- 👁️ "FATE IS WATCHING" POPUP -->
-    <div id="popup-message" class="hidden">
-        <p>FATE IS WATCHING.</p>
-    </div>
+    <!-- 🎵 Hidden Music -->
+    <iframe id="background-music" style="display: none;" 
+        src="https://open.spotify.com/embed/track/66MP31dDAEV6rsmMKDVm9o?utm_source=generator"
+        width="0" height="0" frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
 
-    <!-- 🎵 MUSIC TRICK -->
-    <audio id="background-music" loop>
-        <source src="your-music-file.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- 📜 JAVASCRIPT -->
+    <!-- 📜 JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
+
 
