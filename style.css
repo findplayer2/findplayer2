@@ -8,7 +8,7 @@ const storyContainer = document.getElementById('story-container');
 
 // Click on the Loading Screen to Transition
 loadingScreen.addEventListener('click', () => {
-  loadingScreen.style.display = 'none';
+  loadingScreen.style.display = 'none'; // Hide the loading screen
   welcomeScreen.style.display = 'flex'; // Show the welcome screen after click
 });
 
@@ -22,8 +22,8 @@ startButton.addEventListener('click', () => {
     return;
   }
 
-  welcomeScreen.style.display = 'none';
-  choicesScreen.style.display = 'block';
+  welcomeScreen.style.display = 'none'; // Hide the welcome screen
+  choicesScreen.style.display = 'block'; // Show the choices screen
 });
 
 // Choice Buttons Logic
@@ -40,13 +40,15 @@ document.querySelectorAll('.choice-button').forEach(button => {
       resultText.textContent = '"You’ll see."';
     }
 
-    resultText.style.display = 'block';
-    proceedButton.style.display = 'block';
+    resultText.style.display = 'block'; // Show the result text
+    proceedButton.style.display = 'block'; // Show the "Continue" button
   });
 });
 
 // Proceed Button Logic
 proceedButton.addEventListener('click', () => {
-  window.location.href = 'scene.html'; // Go to scene.html
+  choicesScreen.style.display = 'none'; // Hide the choices screen
+  storyContainer.style.display = 'block'; // Show the story container (transition to next scene or content)
 });
+
 
