@@ -58,3 +58,23 @@ button {
     padding: 30px;
     border: 2px solid white;
 }
+.glitch {
+    text-shadow: 
+        1px 0 red, 
+        -1px 0 blue, 
+        0 1px green, 
+        0 -1px yellow;
+    animation: glitch-animation 0.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-animation {
+    0% {
+        transform: translateX(2px);
+    }
+    50% {
+        transform: translateX(-2px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
