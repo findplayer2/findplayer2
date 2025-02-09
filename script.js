@@ -1,16 +1,58 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2761
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+// DOM elements
+const startButton = document.getElementById('start-btn');
+const usernameInput = document.getElementById('username');
+const welcomeText = document.getElementById('welcome-text');
+const characterCustomization = document.getElementById('character-customization');
+const glitchScreen = document.getElementById('glitch-screen');
+const glitchText = document.getElementById('glitch-text');
+const submitCustomization = document.getElementById('submit-customization');
 
-\f0\fs24 \cf0 function checkPassword() \{\
-    let input = document.getElementById("password").value.toUpperCase();\
-    if (input === "FIND PLAYER TWO") \{\
-        window.location.href = "scene.html"; // Redirects to book excerpt\
-    \} else \{\
-        document.getElementById("error-message").innerText = "ACCESS DENIED.";\
-    \}\
-\}\
-}
+// Start the game when the Start button is clicked
+startButton.addEventListener('click', () => {
+    const username = usernameInput.value;
+
+    if (!username) {
+        alert("Please enter a username."); // Prevent empty usernames
+        return;
+    }
+
+    // Show the character customization screen and update the welcome text
+    welcomeText.textContent = `Welcome back, ${username}! You finally found me.`;
+    characterCustomization.style.display = 'block';  // Show customization
+    startButton.style.display = 'none';  // Hide the Start button
+
+    // Start glitch effect after 5 seconds
+    setTimeout(() => {
+        glitchScreen.style.display = 'block';  // Show the glitch screen
+        glitchText.classList.add('glitch');  // Apply glitch effect
+    }, 5000);  // Trigger after 5 seconds
+});
+
+// Handle customization when the submit button is clicked
+submitCustomization.addEventListener('click', () => {
+    // Get the selected customization choices
+    const hairColor = document.getElementById('hair').value;
+
+    if (!hairColor) {
+        alert("Please choose a hair color!"); // Ensure a customization is chosen
+        return;
+    }
+
+    // Display the chosen customization and trigger glitch breakdown
+    glitchText.textContent = `You chose ${hairColor}. But something's wrong...`;
+
+    // Start glitch breakdown sequence
+    setTimeout(() => {
+        glitchText.textContent = "It’s been two years. Do you remember him?";
+        setTimeout(() => {
+            glitchText.textContent = "The map unfolds. The story resets.";
+        }, 3000);  // After 3 seconds
+    }, 2000);  // After 2 seconds
+});
+
+// Wait for 3 seconds after the page loads, then transition to the next page
+window.onload = function () {
+    setTimeout(function () {
+        window.location.href = "character_screen.html";  // Transition to the next page
+    }, 3000);  // Transition after 3 seconds
+};
