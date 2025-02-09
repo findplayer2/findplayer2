@@ -71,3 +71,8 @@ function updateLoading() {
     }
 }
 window.onload = updateLoading;
+function chooseCharacter(name) {
+    document.getElementById('character-selection').style.display = 'none';
+    document.getElementById('game-screen').style.display = 'block';
+    document.getElementById('character-name').textContent = name;
+}
