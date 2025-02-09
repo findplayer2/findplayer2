@@ -86,3 +86,132 @@ body {
     font-size: 1.2rem;
     z-index: 2;
 }
+/* styles.css */
+
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #f6f4f9;
+    color: #333;
+    text-align: center;
+}
+
+.screen {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* Welcome Screen */
+#welcome-screen {
+    display: flex;
+    background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+}
+
+.pastel-glow {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px #ffafbd;
+}
+
+.soft-text {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.pastel-btn {
+    background-color: #ffafbd;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.pastel-btn:hover {
+    transform: scale(1.1);
+}
+
+.status-text {
+    font-style: italic;
+    margin-top: 10px;
+    color: #888;
+}
+
+.flicker {
+    animation: flicker-animation 1.5s infinite;
+}
+
+/* Flicker Animation */
+@keyframes flicker-animation {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* Customization Screen */
+#customization-screen {
+    display: flex;
+    background: linear-gradient(to bottom, #c9ffbf, #ffafbd);
+}
+
+.avatar-preview img {
+    width: 200px;
+    height: auto;
+}
+
+.options label {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.options select {
+    margin-bottom: 20px;
+}
+
+/* Game Scene */
+#game-scene {
+    display: flex;
+    background-color: #222;
+    color: white;
+}
+
+.background img {
+    width: 100%;
+    height: auto;
+}
+
+.character img {
+    width: 20%;
+    position: absolute;
+    bottom: 20%;
+    left: 40%;
+}
+
+.dialogue-box {
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    width: 80%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+.dialogue-btn {
+    background-color: #ffafbd;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+}
