@@ -1,46 +1,95 @@
 /* General Styles */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Courier New', monospace;
-    background-color: black;
-    color: white;
-    text-align: center;
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#game-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.screen {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
-.glitch {
-    animation: glitch-animation 1s infinite;
-}
-
-@keyframes glitch-animation {
-    0% { text-shadow: 2px 0 red, -2px 0 blue; }
-    50% { text-shadow: -2px 0 red, 2px 0 blue; }
-    100% { text-shadow: 2px 0 red, -2px 0 blue; }
-}
-
-/* Loading Screen */
 #loading-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  animation: fadeIn 3s;
 }
 
-#cursor-blink {
-    animation: blink 1s infinite;
+.blinking {
+  font-size: 24px;
+  animation: blink 1.5s infinite;
 }
 
 @keyframes blink {
-    50% { opacity: 0; }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-/* Scenes */
-#train-scene, #notebook-scene, #glitch-scene, #final-loop {
-    padding: 20px;
+#dialogue-text {
+  font-size: 18px;
+  margin: 20px;
+  line-height: 1.5;
+  text-shadow: 0 0 5px #ff0000, 0 0 10px #00ff00;
+}
+
+#choices button {
+  margin: 10px;
+  padding: 10px 20px;
+  background: #111;
+  color: white;
+  border: 1px solid #555;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+#choices button:hover {
+  background: #444;
+  color: #fff;
+}
+
+#end-text {
+  font-size: 24px;
+  text-shadow: 0px 0px 5px red, 0px 0px 5px blue;
+  animation: glitch 0.5s infinite alternate;
+}
+
+#glitch-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://opengameart.org/sites/default/files/scanline.png') repeat;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glitch {
+  0% { transform: skew(-2deg, -2deg); }
+  50% { transform: skew(2deg, 2deg); }
+  100% { transform: skew(-1deg, 1deg); }
 }
 
