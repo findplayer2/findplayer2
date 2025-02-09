@@ -1,14 +1,17 @@
-/* 🌑 GENERAL BODY SETTINGS */
+/* 🎮 IMPORT RETRO ARCADE FONT */
+@import url('https://fonts.cdnfonts.com/css/arcade-classic');
+
+/* 🌑 GENERAL SETTINGS (DARK, EERIE ATMOSPHERE) */
 body {
     background-color: black;
     color: white;
-    font-family: 'Courier New', monospace;
+    font-family: 'ArcadeClassic', sans-serif; /* 👾 Retro font */
     text-align: center;
     padding: 20px;
     overflow: hidden;
 }
 
-/* 🎭 SMOOTH HACKER CHATBOX EFFECT */
+/* 📝 HACKER CHATBOX EFFECT */
 .chatbox {
     font-size: 22px;
     color: white;
@@ -19,15 +22,27 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* 💀 FAINT GLITCH EFFECT AFTER "USERNAME TAKEN" */
+/* 🌑 PAGE TRANSITIONS - Smooth "One After Another" Flow */
+.page {
+    display: none; /* Initially hidden */
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* 🎭 GLITCH EFFECT (TRIGGERED AFTER "USERNAME TAKEN") */
 @keyframes glitch {
     0% { transform: translate(0, 0); }
-    50% { transform: translate(-1px, 1px); text-shadow: 2px 2px red; }
+    50% { transform: translate(-1px, 1px); text-shadow: 2px 2px red, -2px -2px blue; }
     100% { transform: translate(0, 0); }
 }
 
 .glitch-text {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     animation: glitch 1.5s infinite alternate;
 }
@@ -38,59 +53,7 @@ body {
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* 🔥 CONTINUE BUTTON */
-button {
-    background-color: black;
-    color: red;
-    font-size: 18px;
-    font-weight: bold;
-    border: 2px solid red;
-    padding: 10px;
-    transition: background 0.3s ease-in-out, transform 0.1s;
-}
-
-button:hover {
-    background-color: red;
-    color: black;
-    border: 2px solid black;
-}
-@import url('https://fonts.cdnfonts.com/css/arcade-classic');
-
-body {
-    background-color: black;
-    color: white;
-    font-family: 'ArcadeClassic', sans-serif; /* 👾 Apply the Retro Font */
-    text-align: center;
-    padding: 20px;
-    overflow: hidden;
-}
-
-/* 🌑 PAGE TRANSITIONS - Each "Page" Appears One After Another */
-.page {
-    display: none; /* Hide all sections initially */
-    opacity: 0;
-    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
-}
-
-.page.active {
-    display: block;
-    opacity: 1;
-}
-
-/* 🎭 GLITCH EFFECT (AFTER USERNAME TAKEN) */
-@keyframes glitch {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(-1px, 1px); text-shadow: 2px 2px red; }
-    100% { transform: translate(0, 0); }
-}
-
-.glitch-text {
-    font-size: 20px;
-    font-weight: bold;
-    animation: glitch 1.5s infinite alternate;
-}
-
-/* 🚀 CONTINUE BUTTON STYLE */
+/* 🚀 CONTINUE BUTTON */
 button {
     background-color: black;
     color: red;
@@ -105,4 +68,42 @@ button {
 button:hover {
     background-color: red;
     color: black;
+    border: 2px solid black;
+}
+
+/* 🩸 FAINT SCREEN FLICKER EFFECT (FOR LATER HORROR SEQUENCES) */
+@keyframes flicker {
+    0% { background-color: black; }
+    50% { background-color: #0a0a0a; }
+    100% { background-color: black; }
+}
+
+.flicker {
+    animation: flicker 3s infinite alternate;
+}
+
+/* 👁️ HIDDEN POPUPS FOR SYSTEM MESSAGES */
+.system-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid white;
+    display: none; /* Hidden initially */
+}
+
+/* 👀 RANDOM TEXT FLICKERING */
+.flicker-text {
+    animation: flickerText 1.5s infinite alternate;
+}
+
+@keyframes flickerText {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
 }
