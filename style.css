@@ -1,44 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Player Two Is Online</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Loading Screen -->
-  <div id="loading-screen" class="screen">
-    <h1>You finally found me.</h1>
-    <p id="waiting-text">I was starting to think you wouldn’t.</p>
-  </div>
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color: white;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
 
-  <!-- Welcome Screen (Username, City input) -->
-  <div id="welcome-screen" class="screen hidden">
-    <p id="real-check">"You’re still real, right? Don’t turn it off this time."</p>
-    <input type="text" id="player-name" placeholder="Enter your name..." />
-    <input type="text" id="player-city" placeholder="Enter your city..." />
-    <button id="start-button">Start</button>
-  </div>
+#game-container {
+  width: 100%;
+  max-width: 600px;
+}
 
-  <!-- Choices Screen -->
-  <div id="choices-screen" class="screen hidden">
-    <h2>How much do you remember?</h2>
-    <button class="choice-button" data-choice="everything">"I remember everything."</button>
-    <button class="choice-button" data-choice="nothing">"I don’t remember anything."</button>
-    <button class="choice-button" data-choice="what">"What is this?"</button>
-    <p id="choice-result"></p>
-    <button id="proceed-button" class="hidden">Continue</button>
-  </div>
+.screen {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  <!-- Story Sequences (We will show the "Rubik's Cube" scene, etc.) -->
-  <div id="story-container" class="screen hidden">
-    <p id="story-text">A Rubik’s Cube sits on a bench. Old, battered. Familiar.</p>
-    <button class="choice-button" data-choice="pick-up">Pick up the Cube</button>
-    <button class="choice-button" data-choice="leave">Leave it</button>
-  </div>
+.hidden {
+  display: none;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+#loading-screen {
+  display: flex;
+  animation: fadeIn 3s;
+}
+
+#waiting-text {
+  font-size: 24px;
+  animation: fadeIn 3s;
+}
+
+#real-check {
+  font-size: 20px;
+  font-style: italic;
+  color: #bbb;
+}
+
+#choices button {
+  margin: 10px;
+  padding: 10px 20px;
+  background: #111;
+  color: white;
+  border: 1px solid #555;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+#choices button:hover {
+  background: #444;
+  color: #fff;
+}
+
+#end-text {
+  font-size: 24px;
+  text-shadow: 0px 0px 5px red, 0px 0px 5px blue;
+  animation: glitch 0.5s infinite alternate;
+}
+
+#glitch-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://opengameart.org/sites/default/files/scanline.png') repeat;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glitch {
+  0% { transform: skew(-2deg, -2deg); }
+  50% { transform: skew(2deg, 2deg); }
+  100% { transform: skew(-1deg, 1deg); }
+}
 
