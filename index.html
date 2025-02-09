@@ -64,6 +64,77 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYER TWO IS ONLINE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PAGE 1: LOADING SCREEN -->
+    <div id="page1" class="page active">
+        <p class="glitch-text">LOADING... PLEASE WAIT.</p>
+        <button onclick="nextPage()">CONTINUE</button>
+    </div>
+
+    <!-- PAGE 2: USERNAME ENTRY -->
+    <div id="page2" class="page">
+        <p>Sign up. Enter your username. It matters.</p>
+        <input type="text" id="username-input" placeholder="Enter username...">
+        <button onclick="nextPage()">CONTINUE</button>
+    </div>
+
+    <!-- PAGE 3: SECURITY QUESTION -->
+    <div id="page3" class="page">
+        <p>Choose a security question.</p>
+        <select id="security-question">
+            <option value="lie">What was the first lie you told that ever came true?</option>
+            <option value="face">If someone else was wearing your face, would you want to know?</option>
+            <option value="missing">Where were you on the night you went missing?</option>
+        </select>
+        <input type="text" id="security-answer" placeholder="Type your answer...">
+        <button onclick="nextPage()">CONTINUE</button>
+    </div>
+
+    <!-- PAGE 4: HORROR STARTS -->
+    <div id="page4" class="page">
+        <p class="glitch-text">USERNAME TAKEN.</p>
+        <p>WELCOME BACK.</p>
+        <p>YOU HAVE BEEN HERE BEFORE.</p>
+        <button onclick="nextPage()">CONTINUE</button>
+    </div>
+
+    <!-- PAGE 5: TRAIN STATION -->
+    <div id="page5" class="page">
+        <p>[The screen loads an old train station. The lighting is off—too bright, too dim. The air is thick, buzzing.]</p>
+        <p>SYSTEM MESSAGE: "How much do you remember?"</p>
+        <button onclick="nextPage()">I remember everything.</button>
+        <button onclick="nextPage()">I don’t remember anything.</button>
+        <button onclick="nextPage()">What is this?</button>
+    </div>
+
+    <!-- PAGE 6: CUBE -->
+    <div id="page6" class="page">
+        <p>A Rubik’s Cube sits on a bench. Old, battered. Familiar.</p>
+        <button onclick="nextPage()">Pick up the Cube</button>
+    </div>
+
+    <!-- PAGE 7: END SEQUENCE -->
+    <div id="page7" class="page">
+        <p>[A convenience store. Two kids laughing. A Rubik’s Cube in their hands.]</p>
+        <p>??? "Hey, check this out." "I think I figured it out."</p>
+        <p>*A slip of paper inside the Cube.*</p>
+        <p class="glitch-text">DON’T PLAY. DON’T TRUST IT. GET OUT BEFORE IT’S TOO LATE.</p>
+        <p>[LOADING... PLEASE WAIT.]</p>
+    </div>
+
+    <!-- 🎵 Hidden Music -->
+    <iframe id="background-music" style="display: none;" 
+        src="https://open.spotify.com/embed/track/66MP31dDAEV6rsmMKDVm9o?utm_source=generator"
+        wid
 
 
 
