@@ -132,5 +132,26 @@ document.body.addEventListener("click", function playMusic() {
 
     document.body.removeEventListener("click", playMusic);
 }, { once: true }); // Only runs once
+function addGlitchEffect(textElement) {
+    let glitchText = textElement.innerHTML;
+    
+    // Randomly replace some letters with █ or distort them
+    glitchText = glitchText.replace(/a/g, "█").replace(/e/g, "3").replace(/o/g, "Ø").replace(/s/g, "$");
+
+    textElement.innerHTML = glitchText;
+
+    // Remove glitch effect after a short time
+    setTimeout(() => {
+        textElement.innerHTML = textElement.dataset.originalText;
+    }, 600);
+}
+
+// Apply glitch on later scenes
+function applyGlitchEffectLater() {
+    let storyText = document.getElementById("scene-text");
+    storyText.dataset.originalText = storyText.innerHTML;
+
+    setTimeout(() => addGlitchEffect(storyText), 3000);
+}
 
 
