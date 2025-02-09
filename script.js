@@ -39,7 +39,7 @@ document.querySelectorAll('.choice-button').forEach(button => {
       choiceResult.textContent = '"You’ll see."';
     }
 
-    choiceResult.style.display = 'block'; // Show the result text
+    choiceResult.style.display = 'block'; // Show result text
     proceedButton.style.display = 'block'; // Show the "Continue" button
   });
 });
@@ -63,3 +63,4 @@ document.querySelectorAll('#story-container .choice-button').forEach(button => {
     // You can then continue to the next part of the story
   });
 });
+
