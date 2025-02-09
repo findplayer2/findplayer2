@@ -55,3 +55,36 @@
     <script src="script.js"></script>
 </body>
 </html>
+<!-- HTML for the Character Customization Screen -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Customization</title>
+</head>
+<body>
+    <div id="customization-screen">
+        <h2>Customize Your Character</h2>
+        <div id="character-display">
+            <img id="character" src="chibi_default.png" alt="Chibi Character">
+        </div>
+
+        <!-- Buttons for character customization -->
+        <button onclick="changeHairColor('blue')">Blue Hair</button>
+        <button onclick="changeClothing('casual')">Casual Clothing</button>
+        <button onclick="triggerGlitch()">Trigger Glitch</button>
+
+        <!-- Hidden eerie message -->
+        <p id="eerie-text" style="display:none;">"You're still real, right? Don't turn it off this time."</p>
+        
+        <h2>Choose Your World</h2>
+        <!-- Buttons to change background -->
+        <button onclick="changeBackground('train_station')">Train Station</button>
+        <button onclick="changeBackground('summer_fireflies')">Summer Fireflies</button>
+        <button onclick="changeBackground('stormy_night')">Stormy Night</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
