@@ -8,19 +8,19 @@
 </head>
 <body>
 
-    <!-- 💀 Loading Screen -->
+    <!-- 💀 LOADING SCREEN -->
     <div id="loading-screen">
         <p class="glitch-text">LOADING... PLEASE WAIT.</p>
     </div>
 
-    <!-- 👁️ Username Entry -->
+    <!-- 👁️ USERNAME ENTRY -->
     <div id="username-screen" class="hidden">
         <p class="glitch-text">Sign up. Enter your username. It matters.</p>
         <input type="text" id="username-input" placeholder="Enter username...">
         <button id="username-submit">CONTINUE</button>
     </div>
 
-    <!-- 💀 Security Question -->
+    <!-- 🔥 SECURITY QUESTION -->
     <div id="security-screen" class="hidden">
         <p class="glitch-text">Choose a security question.</p>
         <select id="security-question">
@@ -32,27 +32,24 @@
         <button id="security-submit">CONTINUE</button>
     </div>
 
-    <!-- 🔥 Horror Message Screen -->
+    <!-- 💀 HORROR MESSAGE SCREEN -->
     <div id="horror-screen" class="hidden">
         <p id="horror-text"></p>
-        <button id="continue-btn">CONTINUE</button>
+        <button id="continue-btn" class="hidden">CONTINUE</button>
     </div>
 
-    <!-- 👁️ Fate is Watching Popup -->
+    <!-- 👁️ "FATE IS WATCHING" POPUP -->
     <div id="popup-message" class="hidden">
         <p>FATE IS WATCHING.</p>
     </div>
 
-    <!-- 🎵 Hidden Music Player -->
-    <iframe id="background-music" style="display: none;" 
-        src="https://open.spotify.com/embed/track/66MP31dDAEV6rsmMKDVm9o?utm_source=generator"
-        width="0" height="0" frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-    </iframe>
+    <!-- 🎵 MUSIC TRICK -->
+    <audio id="background-music" loop>
+        <source src="your-music-file.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- 📜 JavaScript -->
-  <script src="script.js"></script>
+    <!-- 📜 JAVASCRIPT -->
+    <script src="script.js"></script>
 </body>
 </html>
-
 
