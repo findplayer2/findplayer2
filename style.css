@@ -1,109 +1,44 @@
-/* 🎮 IMPORT RETRO ARCADE FONT */
-@import url('https://fonts.cdnfonts.com/css/arcade-classic');
-
-/* 🌑 GENERAL SETTINGS (DARK, EERIE ATMOSPHERE) */
-body {
-    background-color: black;
-    color: white;
-    font-family: 'ArcadeClassic', sans-serif; /* 👾 Retro font */
-    text-align: center;
-    padding: 20px;
-    overflow: hidden;
+/* 🌌 USERNAME INPUT SCREEN */
+#username-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* 📝 HACKER CHATBOX EFFECT */
-.chatbox {
-    font-size: 22px;
-    color: white;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    border-radius: 10px;
-    display: inline-block;
-    animation: fadeIn 1s ease-in-out;
+.input-text {
+  font-size: 20px;
+  color: #00ff00;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
 }
 
-/* 🌑 PAGE TRANSITIONS - Smooth "One After Another" Flow */
-.page {
-    display: none; /* Initially hidden */
-    opacity: 0;
-    transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+#username-input {
+  width: 300px;
+  height: 40px;
+  font-size: 18px;
+  text-align: center;
+  border: 2px solid #00ff00;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
 }
 
-.page.active {
-    display: block;
-    opacity: 1;
+#username-submit {
+  background-color: black;
+  color: #00ff00;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #00ff00;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
 }
 
-/* 🎭 GLITCH EFFECT (TRIGGERED AFTER "USERNAME TAKEN") */
-@keyframes glitch {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(-1px, 1px); text-shadow: 2px 2px red, -2px -2px blue; }
-    100% { transform: translate(0, 0); }
+#username-submit:hover {
+  background-color: #00ff00;
+  color: black;
+  transform: scale(1.05);
 }
 
-.glitch-text {
-    font-size: 22px;
-    font-weight: bold;
-    animation: glitch 1.5s infinite alternate;
-}
-
-/* 📜 SMOOTH SCROLLING TEXT EFFECT */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(10px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-/* 🚀 CONTINUE BUTTON */
-button {
-    background-color: black;
-    color: red;
-    font-size: 18px;
-    font-weight: bold;
-    border: 2px solid red;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.1s;
-}
-
-button:hover {
-    background-color: red;
-    color: black;
-    border: 2px solid black;
-}
-
-/* 🩸 FAINT SCREEN FLICKER EFFECT (FOR LATER HORROR SEQUENCES) */
-@keyframes flicker {
-    0% { background-color: black; }
-    50% { background-color: #0a0a0a; }
-    100% { background-color: black; }
-}
-
-.flicker {
-    animation: flicker 3s infinite alternate;
-}
-
-/* 👁️ HIDDEN POPUPS FOR SYSTEM MESSAGES */
-.system-popup {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 0, 0, 0.8);
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    font-size: 18px;
-    border: 1px solid white;
-    display: none; /* Hidden initially */
-}
-
-/* 👀 RANDOM TEXT FLICKERING */
-.flicker-text {
-    animation: flickerText 1.5s infinite alternate;
-}
-
-@keyframes flickerText {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
-}
