@@ -1,45 +1,64 @@
 // DOM Elements
-const welcomeScreen = document.getElementById("welcome-screen");
-const characterSelection = document.getElementById("character-selection");
-const storyScene = document.getElementById("story-scene");
-const startBtn = document.getElementById("start-btn");
-const nextBtn = document.getElementById("next-btn");
-const usernameInput = document.getElementById("username");
-const dialogueBox = document.getElementById("dialogue-box");
-const playerNameSpan = document.getElementById("player-name");
-const selectButtons = document.querySelectorAll(".select-btn");
+const welcomeScreen = document.getElementById('welcome-screen');
+const playerNameInput = document.getElementById('player-name');
+const playerCityInput = document.getElementById('player-city');
+const startButton = document.getElementById('start-button');
+const playerList = document.getElementById('player-list');
 
-let playerName = "";
-let selectedCharacter = "";
+const characterSelection = document.getElementById('character-selection');
+const neutralChibi = document.getElementById('neutral-chibi');
+const chooseGirlButton = document.getElementById('choose-girl');
+const chooseBoyButton = document.getElementById('choose-boy');
 
-// Start the game
-startBtn.addEventListener("click", () => {
-  playerName = usernameInput.value.trim();
-  if (!playerName) {
-    alert("Please enter your name.");
-    return;
-  }
-  welcomeScreen.classList.remove("active");
-  characterSelection.classList.add("active");
+const nostalgicScene = document.getElementById('nostalgic-scene');
+const welcomeText = document.getElementById('welcome-text');
+const characterImage = document.getElementById('character-image');
+
+// Neutral Chibi Source
+neutralChibi.src = "neutral-chibi.png";
+
+// Player List for Debugging
+let playerData = [];
+
+// Start Button Event
+startButton.addEventListener('click', () => {
+    const playerName = playerNameInput.value.trim();
+    const playerCity = playerCityInput.value.trim();
+
+    if (!playerName || !playerCity) {
+        alert("Please enter both your name and city.");
+        return;
+    }
+
+    // Save Player Data
+    playerData.push({ name: playerName, city: playerCity });
+    updatePlayerList();
+
+    // Transition to Character Selection
+    welcomeScreen.style.display = "none";
+    characterSelection.classList.remove("hidden");
 });
 
-// Select character
-selectButtons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    selectedCharacter = e.target.dataset.character;
-    characterSelection.classList.remove("active");
-    storyScene.classList.add("active");
-    playerNameSpan.textContent = playerName;
-    loadStory();
-  });
-});
+// Function: Update Player List (Debugging/Tracking)
+function updatePlayerList() {
+    playerList.innerHTML = "";
+    playerData.forEach(player => {
+        const li = document.createElement('li');
+        li.textContent = `${player.name} from ${player.city}`;
+        playerList.appendChild(li);
+    });
+    playerList.classList.remove("hidden");
+}
 
-// Advance story
-nextBtn.addEventListener("click", () => {
-  dialogueBox.textContent = `"Somewhere, a train is moving through the night. Your journey begins..."`;
-});
+// Character Selection Events
+chooseGirlButton.addEventListener('click', () => showNostalgicScene("girl"));
+chooseBoyButton.addEventListener('click', () => showNostalgicScene("boy"));
 
-// Initialize first scene
-window.onload = () => {
-  welcomeScreen.classList.add("active");
-};
+// Show Nostalgic Scene
+function showNostalgicScene(choice) {
+    characterSelection.style.display = "none";
+    nostalgicScene.classList.remove("hidden");
+
+    welcomeText.textContent = "Welcome back, Player!";
+    characterImage.src = choice === "girl" ? "girl-chibi.png" : "boy-chibi.png";
+}
