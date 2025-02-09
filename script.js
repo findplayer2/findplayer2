@@ -62,3 +62,12 @@ function showNostalgicScene(choice) {
     welcomeText.textContent = "Welcome back, Player!";
     characterImage.src = choice === "girl" ? "girl-chibi.png" : "boy-chibi.png";
 }
+// When transitioning to the sunny background
+function showSunnyBackground() {
+    document.getElementById("nostalgic-scene").classList.remove("hidden"); // Show sunny scene
+    document.getElementById("neutral-chibi").classList.add("hidden"); // Hide neutral chibi
+    const chosenCharacter = document.querySelector(".character-options img:not(.hidden)");
+    if (chosenCharacter) {
+        chosenCharacter.classList.remove("hidden"); // Show chosen character (boy/girl)
+    }
+}
