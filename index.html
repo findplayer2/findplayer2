@@ -3,76 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FindPlayer2 - Welcome</title>
+    <title>FindPlayer2</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Welcome Screen -->
-        <div id="welcome-screen">
-            <h1 class="glitch" data-text="FindPlayer2">FindPlayer2</h1>
-            <p id="welcome-text">"Welcome back. I’ve been waiting."</p>
-            <input type="text" id="username" placeholder="Enter your name...">
-            <button id="start-btn">Start</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FindPlayer2</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
     <!-- Welcome Screen -->
-    <div id="welcome-screen" class="screen">
-        <h1 class="pastel-glow">Welcome Back</h1>
-        <p class="soft-text">Please enter your name...</p>
-        <input type="text" id="player-name" placeholder="Enter your name" />
-        <button id="start-btn" class="btn pastel-btn">Start</button>
-        <p id="status-text" class="status-text">Player 1: Online. <span class="flicker">Player 2: Searching...</span></p>
+    <div id="welcome-screen">
+        <h1 class="glitch">Welcome Back</h1>
+        <p class="glitch">"I've been waiting. Enter your name and city."</p>
+        <input type="text" id="player-name" placeholder="Enter your name..." />
+        <input type="text" id="player-city" placeholder="Enter your city..." />
+        <button id="start-button">Start</button>
+        <ul id="player-list" class="hidden"></ul> <!-- Hidden list for debug -->
     </div>
 
-    <!-- Character Customization -->
-    <div id="customization-screen" class="screen hidden">
-        <h2 class="pastel-glow">Create Your Avatar</h2>
-        <div class="avatar-preview">
-            <img id="avatar" src="assets/avatar-default.png" alt="Avatar" />
-        </div>
-        <div class="options">
-            <label for="hair-color">Hair Color:</label>
-            <select id="hair-color">
-                <option value="blue">Blue</option>
-                <option value="pink">Pink</option>
-                <option value="green">Green</option>
-                <option value="black">Black</option>
-            </select>
-            <label for="expression">Expression:</label>
-            <select id="expression">
-                <option value="happy">Happy</option>
-                <option value="neutral">Neutral</option>
-                <option value="sad">Sad</option>
-            </select>
-            <button id="submit-avatar" class="btn pastel-btn">Done</button>
+    <!-- Character Selection -->
+    <div id="character-selection" class="hidden">
+        <h2>Choose Your Character</h2>
+        <img id="neutral-chibi" src="neutral-chibi.png" alt="Neutral Chibi">
+        <div class="character-options">
+            <button id="choose-girl">Girl</button>
+            <button id="choose-boy">Boy</button>
         </div>
     </div>
 
-    <!-- Game Scene -->
-    <div id="game-scene" class="screen hidden">
-        <div id="background" class="background">
-            <img src="assets/background-forest.png" alt="Forest Background">
-        </div>
-        <div id="character" class="character">
-            <img src="assets/avatar-customized.png" alt="Character">
-        </div>
-        <div id="dialogue-box">
-            <p id="dialogue-text">"Welcome back... I was waiting for you."</p>
-            <button id="next-dialogue" class="btn dialogue-btn">Next</button>
-        </div>
+    <!-- Nostalgic Scene -->
+    <div id="nostalgic-scene" class="hidden">
+        <img id="background-image" src="sunny.png" alt="Sunny Background">
+        <h2 id="welcome-text"></h2>
+        <img id="character-image" alt="Selected Character">
+        <p id="story-text">"It's time to begin your journey..."</p>
     </div>
 
     <script src="script.js"></script>
