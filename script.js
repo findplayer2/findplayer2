@@ -56,3 +56,18 @@ window.onload = function () {
         window.location.href = "character_screen.html";  // Transition to the next page
     }, 3000);  // Transition after 3 seconds
 };
+// Loading effect simulation
+let progress = 0;
+const loadingText = document.getElementById('loading-bar');
+
+function updateLoading() {
+    if (progress <= 100) {
+        loadingText.textContent = '█'.repeat(progress / 10) + '▒'.repeat(10 - progress / 10) + ` ${progress}%`;
+        progress += 10;
+        setTimeout(updateLoading, 500);
+    } else {
+        document.getElementById('loading-screen').style.display = 'none';
+        document.getElementById('game-container').style.display = 'block';
+    }
+}
+window.onload = updateLoading;
