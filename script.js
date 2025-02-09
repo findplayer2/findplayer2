@@ -112,3 +112,32 @@ function triggerGlitch() {
         document.getElementById('dialogue-text').classList.remove('glitch');
     }, 3000);
 }
+// script.js
+
+let loadingProgress = 0; // Start loading at 0%
+
+// DOM elements
+const progressBar = document.getElementById("progress-bar");
+const percentText = document.getElementById("percent-text");
+const loadingScreen = document.getElementById("loading-screen");
+const gameScene = document.getElementById("game-scene");
+
+// Simulate loading process
+function simulateLoading() {
+  const interval = setInterval(() => {
+    loadingProgress += 10;
+    progressBar.style.width = loadingProgress + "%";
+    percentText.textContent = `${loadingProgress}%`;
+
+    if (loadingProgress === 100) {
+      clearInterval(interval); // Stop loading when 100% is reached
+      setTimeout(() => {
+        loadingScreen.style.display = "none"; // Hide loading screen
+        gameScene.style.display = "block"; // Show game scene
+      }, 500); // Small delay before transitioning
+    }
+  }, 500); // Increase loading by 10% every 500ms
+}
+
+// Start loading process when the page loads
+window.onload = simulateLoading;
