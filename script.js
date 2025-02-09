@@ -1,98 +1,54 @@
-// DOM Elements
-const loadingScreen = document.getElementById("loading-screen");
-const dialogueScreen = document.getElementById("dialogue-screen");
-const dialogueText = document.getElementById("dialogue-text");
-const choicesContainer = document.getElementById("choices");
-const continueButton = document.getElementById("continue-button");
-const endScreen = document.getElementById("end-screen");
-const endText = document.getElementById("end-text");
-const glitchOverlay = document.getElementById("glitch-overlay");
+// DOM elements
+const loadingScreen = document.getElementById('loading-screen');
+const welcomeScreen = document.getElementById('welcome-screen');
+const startButton = document.getElementById('start-button');
+const choicesScreen = document.getElementById('choices-screen');
+const proceedButton = document.getElementById('proceed-button');
+const storyContainer = document.getElementById('story-container');
 
-// Script Data
-const story = [
-  { text: "LOADING... PLEASE WAIT.", options: null, next: 1 },
-  { text: "WELCOME BACK.", options: null, next: 2 },
-  { text: "YOU HAVE BEEN HERE BEFORE.", options: null, next: 3 },
-  { text: "YOU ALWAYS COME BACK. WHY?", options: null, next: 4 },
-  {
-    text: "WHY DID YOU COME BACK?",
-    options: [{ label: "CONTINUE", next: 5 }],
-    next: null,
-  },
-  {
-    text: "SYSTEM MESSAGE: How much do you remember?",
-    options: [
-      { label: "I remember everything.", next: 6 },
-      { label: "I don’t remember anything.", next: 6 },
-      { label: "What is this?", next: 6 },
-    ],
-    next: null,
-  },
-  {
-    text: "SYSTEM MESSAGE: No, you don’t. Not yet.",
-    options: null,
-    next: 7,
-  },
-  {
-    text: "A Rubik’s Cube sits on a bench. Old, battered. Familiar.",
-    options: [
-      { label: "YES", next: 8 },
-      { label: "NO (Grayed out, unselectable)", next: null },
-    ],
-    next: null,
-  },
-  {
-    text: "The moment you touch it, the screen distorts. A voice: \"Oh. It’s you.\"",
-    options: null,
-    next: 9,
-  },
-  {
-    text: "The game is breaking. You are the anomaly.",
-    options: [
-      { label: "I want to remember.", next: 10 },
-      { label: "I want to leave.", next: 10 },
-      { label: "I want to find him.", next: 10 },
-    ],
-    next: null,
-  },
-  { text: "The train is still moving. It always was.", options: null, next: 11 },
-  {
-    text: "THIS IS NOT A GAME. It never was.",
-    options: null,
-    next: null,
-  },
-];
+// Simulate Loading Screen
+setTimeout(() => {
+  loadingScreen.style.display = 'none';
+  welcomeScreen.style.display = 'block';
+}, 3000); // 3-second loading screen
 
-// State Variables
-let currentSceneIndex = 0;
+// Start Button Logic
+startButton.addEventListener('click', () => {
+  const playerName = document.getElementById('player-name').value.trim();
+  const playerCity = document.getElementById('player-city').value.trim();
 
-// Functions
-function startGame() {
-  loadingScreen.style.display = "none";
-  dialogueScreen.style.display = "flex";
-  showScene(0);
-}
-
-function showScene(index) {
-  currentSceneIndex = index;
-  const scene = story[index];
-  dialogueText.textContent = scene.text;
-
-  if (scene.options) {
-    choicesContainer.innerHTML = "";
-    choicesContainer.classList.remove("hidden");
-    continueButton.classList.add("hidden");
-    scene.options.forEach((option) => {
-      const button = document.createElement("button");
-      button.textContent = option.label;
-      button.disabled = option.next === null;
-      button.addEventListener("click", () => showScene(option.next));
-      choicesContainer.appendChild(button);
-    });
-  } else {
-    choicesContainer.classList.add("hidden");
-    continueButton.classList.remove("hidden");
+  if (!playerName || !playerCity) {
+    alert('Please enter both your name and city.');
+    return;
   }
+
+  welcomeScreen.style.display = 'none';
+  choicesScreen.style.display = 'block';
+});
+
+// Choice Buttons Logic
+document.querySelectorAll('.choice-button').forEach(button => {
+  button.addEventListener('click', (e) => {
+    const choice = e.target.dataset.choice;
+    const resultText = document.getElementById('choice-result');
+
+    if (choice === 'everything') {
+      resultText.textContent = '"No, you don’t."';
+    } else if (choice === 'nothing') {
+      resultText.textContent = '"Not yet."';
+    } else if (choice === 'what') {
+      resultText.textContent = '"You’ll see."';
+    }
+
+    resultText.style.display = 'block';
+    proceedButton.style.display = 'block';
+  });
+});
+
+// Proceed Button Logic
+proceedButton.addEventListener('click', () => {
+  window.location.href = 'scene.html'; // Go to scene.html
+});
 
   if (scene.next === null) {
     continueButton.classList.add("hidden");
