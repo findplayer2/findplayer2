@@ -63,4 +63,73 @@ document.querySelectorAll('#story-container .choice-button').forEach(button => {
     // You can then continue to the next part of the story
   });
 });
+// DOM Elements
+const messageText = document.getElementById('message-text');
+const responseContent = document.getElementById('response-content');
+const choices = document.getElementById('choices');
+const choiceButtons = document.querySelectorAll('.choice-button');
+
+// Function to display the system message and initiate responses
+function displayMessage(message, nextChoices = null) {
+  messageText.textContent = message;
+  choices.innerHTML = ''; // Clear previous choices
+  choices.style.display = 'flex'; // Show choices
+
+  if (nextChoices) {
+    nextChoices.forEach(choice => {
+      const button = document.createElement('button');
+      button.classList.add('choice-button');
+      button.textContent = choice.text;
+      button.addEventListener('click', () => {
+        handleChoice(choice.action);
+      });
+      choices.appendChild(button);
+    });
+  } else {
+    choices.style.display = 'none'; // Hide choices if none
+  }
+}
+
+// Function to handle user's choice and continue the story
+function handleChoice(action) {
+  if (action === 'whyCantILeave') {
+    systemResponse("You’ve asked this before. It’s the same answer.\nIt doesn’t change. It never does.\nYou won’t leave. You can’t. You’ve already started this.");
+  } else if (action === 'whosStillPlaying') {
+    systemResponse("Somewhere, someone is still playing. Somewhere, someone left. Somewhere, someone stayed. You can’t escape this.");
+  } else if (action === 'tellMeNext') {
+    systemResponse("You already know the answer. You keep asking anyway. You’re not ready. But it’s too late now.");
+  }
+}
+
+// Function to show system responses to the player's choice
+function systemResponse(response) {
+  responseContent.textContent = response;
+  displayMessage(response, [
+    { text: 'What do you want to do next?', action: 'whatNext' }
+  ]);
+}
+
+// Displaying initial system message after Rubik’s Cube pick up
+displayMessage("Do you hear that?\nThe train.", [
+  { text: "Why can’t I leave?", action: 'whyCantILeave' },
+  { text: "Who’s still playing?", action: 'whosStillPlaying' },
+  { text: "Tell me what happens next.", action: 'tellMeNext' }
+]);
+
+// Handle further system responses based on user interaction
+function handleFinalChoice(action) {
+  if (action === 'whatNext') {
+    displayMessage("The game doesn’t end until you say it does. Will you stop trying to leave?", [
+      { text: "I’ll break free.", action: 'breakFree' },
+      { text: "I accept what’s happening.", action: 'accept' },
+      { text: "I’m done. Let’s see what happens.", action: 'done' }
+    ]);
+  } else if (action === 'breakFree') {
+    systemResponse("You’ll try, but you’ll never break free.\nThe cycle will continue. Welcome back.");
+  } else if (action === 'accept') {
+    systemResponse("You accept it, but there’s nothing to accept.\nThis was never your choice.");
+  } else if (action === 'done') {
+    systemResponse("You’ll keep playing.\nAnd the train will keep moving.");
+  }
+}
 
