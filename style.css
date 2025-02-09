@@ -1,67 +1,57 @@
+/* 🌑 GENERAL BODY SETTINGS */
 body {
     background-color: black;
     color: white;
     font-family: 'Courier New', monospace;
     text-align: center;
     padding: 20px;
-    transition: background 1s ease-in-out;
+    overflow: hidden;
 }
 
-/* Hide screens initially */
-.hidden { display: none; }
-
-/* Chatbox UI */
+/* 🎭 SMOOTH HACKER CHATBOX EFFECT */
 .chatbox {
-    font-size: 18px;
-    background: rgba(30, 30, 30, 0.9);
-    padding: 10px;
-    border-left: 3px solid cyan;
-    display: inline-block;
-    text-align: left;
-    margin-bottom: 10px;
-}
-
-/* Smooth glitch effect */
-.glitch-text {
     font-size: 22px;
-    text-shadow: 1px 1px red, -1px -1px blue;
-    animation: glitch 1.5s infinite alternate;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    animation: fadeIn 1s ease-in-out;
 }
 
+/* 💀 FAINT GLITCH EFFECT AFTER "USERNAME TAKEN" */
 @keyframes glitch {
     0% { transform: translate(0, 0); }
-    50% { transform: translate(1px, -1px); }
+    50% { transform: translate(-1px, 1px); text-shadow: 2px 2px red; }
     100% { transform: translate(0, 0); }
 }
 
-/* Error text */
-.error-text {
-    color: red;
+.glitch-text {
+    font-size: 20px;
     font-weight: bold;
+    animation: glitch 1.5s infinite alternate;
 }
 
-/* Smooth button hover effect */
+/* 📜 SMOOTH SCROLLING TEXT EFFECT */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔥 CONTINUE BUTTON */
 button {
     background-color: black;
-    color: white;
-    font-size: 16px;
-    border: 1px solid cyan;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid red;
     padding: 10px;
-    transition: all 0.2s;
+    transition: background 0.3s ease-in-out, transform 0.1s;
 }
 
 button:hover {
-    background-color: cyan;
+    background-color: red;
     color: black;
+    border: 2px solid black;
 }
-
-/* INPUTS */
-input, select {
-    background-color: black;
-    color: white;
-    border: 1px solid cyan;
-    padding: 5px;
-    text-align: center;
-}
-
 
