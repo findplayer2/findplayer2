@@ -8,28 +8,34 @@
 </head>
 <body>
   <!-- Loading Screen -->
-  <div id="loading-screen">
-    <h1>LOADING... PLEASE WAIT</h1>
-    <div id="loading-bar"></div>
+  <div id="loading-screen" class="screen">
+    <h1>You finally found me.</h1>
+    <p id="waiting-text">I was starting to think you wouldn’t.</p>
   </div>
 
-  <!-- Welcome Screen -->
-  <div id="welcome-screen" style="display: none;">
-    <h1 class="glitch">Welcome Back</h1>
-    <p class="glitch">"I've been waiting. Enter your name and city."</p>
+  <!-- Welcome Screen (Username, City input) -->
+  <div id="welcome-screen" class="screen hidden">
+    <p id="real-check">"You’re still real, right? Don’t turn it off this time."</p>
     <input type="text" id="player-name" placeholder="Enter your name..." />
     <input type="text" id="player-city" placeholder="Enter your city..." />
     <button id="start-button">Start</button>
   </div>
 
   <!-- Choices Screen -->
-  <div id="choices-screen" style="display: none;">
+  <div id="choices-screen" class="screen hidden">
     <h2>How much do you remember?</h2>
     <button class="choice-button" data-choice="everything">"I remember everything."</button>
     <button class="choice-button" data-choice="nothing">"I don’t remember anything."</button>
     <button class="choice-button" data-choice="what">"What is this?"</button>
     <p id="choice-result"></p>
-    <button id="proceed-button" style="display: none;">Continue</button>
+    <button id="proceed-button" class="hidden">Continue</button>
+  </div>
+
+  <!-- Story Sequences (Rubik's Cube Scene) -->
+  <div id="story-container" class="screen hidden">
+    <p id="story-text">A Rubik’s Cube sits on a bench. Old, battered. Familiar.</p>
+    <button class="choice-button" data-choice="pick-up">Pick up the Cube</button>
+    <button class="choice-button" data-choice="leave">Leave it</button>
   </div>
 
   <script src="script.js"></script>
