@@ -66,35 +66,3 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const musicIframe = document.getElementById("background-music");
-
-    // Attempt to play automatically
-    function startMusic() {
-        let iframeSrc = musicIframe.src;
-        musicIframe.src = "";  // Reset src (triggers reload)
-        setTimeout(() => {
-            musicIframe.src = iframeSrc; // Restore src (forces autoplay)
-        }, 500);
-    }
-
-    // Play when user interacts (autoplay restriction bypass)
-    document.body.addEventListener("click", () => {
-        startMusic();
-    }, { once: true }); // Runs only once
-
-    // Start immediately if browser allows
-    startMusic();
-});
-const muteButton = document.getElementById("mute-music");
-
-muteButton.addEventListener("click", () => {
-    if (musicIframe.style.display === "none") {
-        musicIframe.style.display = "block";
-        muteButton.textContent = "🔇 Mute Music";
-    } else {
-        musicIframe.style.display = "none";
-        muteButton.textContent = "🔊 Play Music";
-    }
-});
-
