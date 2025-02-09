@@ -1,20 +1,52 @@
 // DOM elements
 const loadingScreen = document.getElementById('loading-screen');
-const storyContainer = document.getElementById('story-container');
-const choiceResult = document.getElementById('choice-result');
+const welcomeScreen = document.getElementById('welcome-screen');
+const startButton = document.getElementById('start-button');
+const choicesScreen = document.getElementById('choices-screen');
 const proceedButton = document.getElementById('proceed-button');
 const storyText = document.getElementById('story-text');
 const pickUpBtn = document.getElementById('pick-up-btn');
 const leaveBtn = document.getElementById('leave-btn');
+const choiceResult = document.getElementById('choice-result');
 
 // Loading screen logic – triggered by the first click
 loadingScreen.addEventListener('click', () => {
   loadingScreen.style.display = 'none'; // Hide loading screen
-  storyContainer.style.display = 'flex'; // Show the story sequence
-  storyText.innerHTML = `"Wait." <br> "Something’s wrong." <br> "The train station darkens. The sky cracks."`;
+  welcomeScreen.style.display = 'flex'; // Show the welcome screen
 });
 
-// Story choices after the dialogue
+// Start button to submit name and city
+startButton.addEventListener('click', () => {
+  const playerName = document.getElementById('player-name').value.trim();
+  const playerCity = document.getElementById('player-city').value.trim();
+
+  if (!playerName || !playerCity) {
+    alert('Please enter both your name and city.');
+    return;
+  }
+
+  welcomeScreen.style.display = 'none'; // Hide welcome screen
+  choicesScreen.style.display = 'flex'; // Show choices screen
+});
+
+// Choices screen logic
+document.querySelectorAll('.choice-button').forEach(button => {
+  button.addEventListener('click', (e) => {
+    const choice = e.target.dataset.choice;
+    if (choice === 'everything') {
+      choiceResult.textContent = '"No, you don’t."';
+    } else if (choice === 'nothing') {
+      choiceResult.textContent = '"Not yet."';
+    } else if (choice === 'what') {
+      choiceResult.textContent = '"You’ll see."';
+    }
+
+    choiceResult.style.display = 'block'; // Show result text
+    proceedButton.style.display = 'inline'; // Show the "Continue" button
+  });
+});
+
+// Story Sequence logic after user interacts with Cube
 pickUpBtn.addEventListener('click', () => {
   storyText.innerHTML = `"You shouldn’t be here." <br> "But you already know that, don’t you?" <br> "You always knew."`;
   proceedButton.style.display = 'inline'; // Show the "Continue" button
@@ -62,9 +94,7 @@ proceedButton.addEventListener('click', () => {
   storyText.innerHTML = `"But they don’t listen." <br> "They never do." <br> "[LOADING... PLEASE WAIT.]"`;
   proceedButton.style.display = 'none'; // Hide button for final closure
   setTimeout(() => {
-    storyText.innerHTML = `"Somewhere, a train moves through the night.
-Somewhere, someone left.
-Somewhere, someone stayed." <br> " And the code— it’s rewriting you. WELCOME BACK."`;
+    storyText.innerHTML = `"Somewhere, a train moves through the night.<br>Somewhere, someone left.<br>Somewhere, someone stayed." <br> "And the code— it’s rewriting you. WELCOME BACK."`;
     proceedButton.style.display = 'inline'; // Show the button one last time
   }, 3000); // Wait for the final message
 });
