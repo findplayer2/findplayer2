@@ -1,140 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAYER TWO IS ONLINE</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+document.addEventListener("DOMContentLoaded", function () {
+    const loadingScreen = document.getElementById("loading-screen");
+    const usernameScreen = document.getElementById("username-screen");
+    const securityScreen = document.getElementById("security-screen");
+    const horrorScreen = document.getElementById("horror-screen");
+    const sceneContainer = document.getElementById("scene-container");
+    const sceneText = document.getElementById("scene-text");
+    const choicesContainer = document.getElementById("choices-container");
+    const continueBtn = document.getElementById("continue-btn");
 
-    <!-- 💀 Loading Screen -->
-    <div id="loading-screen">
-        <p class="glitch-text">LOADING... PLEASE WAIT.</p>
-    </div>
+    const usernameInput = document.getElementById("username-input");
+    const usernameSubmit = document.getElementById("username-submit");
+    const securitySubmit = document.getElementById("security-submit");
+    const securityQuestion = document.getElementById("security-question");
+    const securityAnswer = document.getElementById("security-answer");
 
-    <!-- 👁️ Username Entry -->
-    <div id="username-screen" class="hidden">
-        <p class="chatbox">Sign up. Enter your username. It matters.</p>
-        <input type="text" id="username-input" placeholder="Enter username...">
-        <button id="username-submit">CONTINUE</button>
-    </div>
+    let currentScene = 0;
+    let playerName = "";
+    let userAnswer = "";
 
-    <!-- 🌍 Location Entry -->
-    <div id="location-screen" class="hidden">
-        <p class="chatbox">Where did you find the clue?</p>
-        <select id="location-select">
-            <option value="Vienna">Vienna</option>
-            <option value="Prague">Prague</option>
-            <option value="Budapest">Budapest</option>
-            <option value="Venice">Venice</option>
-            <option value="Berlin">Berlin</option>
-            <option value="London">London</option>
-        </select>
-        <button id="location-submit">CONTINUE</button>
-    </div>
+    // 🎭 Story Scenes
+    const scenes = [
+        { text: `"USERNAME TAKEN."<br> "WELCOME BACK."<br> "YOU HAVE BEEN HERE BEFORE."`, buttonText: "CONTINUE", choices: [] },
+        { text: `"I wasn’t expecting you." <br> "You left, didn’t you?" <br> [Static. A faint breathing sound.]`, buttonText: "CONTINUE", choices: [] },
+        { text: `"How much do you remember?"`, choices: [
+            { text: `"I remember everything."`, next: 4 },
+            { text: `"I don’t remember anything."`, next: 4 },
+            { text: `"What is this?"`, next: 4 }
+        ]},
+        { text: `"No, you don’t." <br> "Not yet."`, buttonText: "CONTINUE", choices: [] },
+        { text: `A Rubik’s Cube sits on a bench. Old, battered. Familiar.`, choices: [
+            { text: `"Pick up the Cube"`, next: 6 }
+        ]},
+        { text: `"You left, didn’t you?" <br> "You swore you wouldn’t." <br> "But here you are."`, buttonText: "CONTINUE", choices: [] },
+        { text: `"Two players. That’s how it always starts." <br> "They solve the Cube. They unlock the game."`, buttonText: "CONTINUE", choices: [] },
+        { text: `"One of them disappears." <br> "The other follows." <br> "Then they both vanish." <br> "No one remembers them."`, buttonText: "CONTINUE", choices: [] },
+        { text: `*Wait...* <br> *Something’s wrong.* <br> [The train station darkens. The sky cracks.]`, buttonText: "CONTINUE", choices: [] },
+        { text: `???: <br> "You shouldn’t be here." <br> "But you already know that, don’t you?"`, buttonText: "CONTINUE", choices: [] },
+        { text: `"Every time, two names." <br> "Pairs of kids who vanished." <br> "Every one of them played the game."`, buttonText: "CONTINUE", choices: [] },
+        { text: `"This isn’t right." <br> "You were already erased." <br> "You are not supposed to be here."`, buttonText: "CONTINUE", choices: [] },
+        { text: `"The pattern is failing." <br> "The game is breaking." <br> "You shouldn’t exist."`, buttonText: "CONTINUE", choices: [] },
+        { text: `"It doesn’t matter." <br> "The train is still moving." <br> "It always was." <br> "You know how this ends."`, buttonText: "CONTINUE", choices: [] },
+        { text: `[The whistle screams. The screen blinks to black.]`, buttonText: "CONTINUE", choices: [] },
+        { text: `[Static. Then, a new scene loads.] <br> [A convenience store. Two kids laughing. A Rubik’s Cube in their hands.]`, buttonText: "CONTINUE", choices: [] },
+        { text: `"Hey, check this out." <br> "I think I figured it out."`, buttonText: "CONTINUE", choices: [] },
+        { text: `*A slip of paper inside the Cube.* <br> *A message, handwritten. Your handwriting.*`, buttonText: "CONTINUE", choices: [] },
+        { text: `"DON’T PLAY. DON’T TRUST IT. GET OUT BEFORE IT’S TOO LATE."`, buttonText: "CONTINUE", choices: [] },
+        { text: `"But they don’t listen." <br> "They never do." <br> [LOADING… PLEASE WAIT.]`, buttonText: "CONTINUE", choices: [] }
+    ];
 
-    <!-- 🔑 Security Question -->
-    <div id="security-screen" class="hidden">
-        <p class="chatbox">Choose a security question.</p>
-        <select id="security-question">
-            <option value="lie">What was the first lie you told that ever came true?</option>
-            <option value="face">If someone else was wearing your face, would you want to know?</option>
-            <option value="missing">Where were you on the night you went missing?</option>
-        </select>
-        <input type="text" id="security-answer" placeholder="Type your answer...">
-        <button id="security-submit">CONTINUE</button>
-    </div>
+    function displayScene(index) {
+        currentScene = index;
+        let scene = scenes[index];
 
-    <!-- 🔥 Horror Sequence -->
-    <div id="story-container" class="hidden">
-        <p id="story-text">LOADING...</p>
-        <div id="choices-container"></div>
-        <button id="continue-btn" class="hidden">CONTINUE</button>
-    </div>
+        sceneText.innerHTML = scene.text;
+        choicesContainer.innerHTML = "";
+        continueBtn.classList.add("hidden");
 
-    <!-- 🎵 Hidden Music -->
-    <iframe id="background-music" style="display: none;" 
-        src="https://open.spotify.com/embed/track/66MP31dDAEV6rsmMKDVm9o?utm_source=generator"
-        width="0" height="0" frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-    </iframe>
+        if (scene.choices && scene.choices.length > 0) {
+            scene.choices.forEach(choice => {
+                let choiceBtn = document.createElement("button");
+                choiceBtn.textContent = choice.text;
+                choiceBtn.addEventListener("click", () => {
+                    displayScene(choice.next);
+                });
+                choicesContainer.appendChild(choiceBtn);
+            });
+        } else {
+            continueBtn.textContent = scene.buttonText || "CONTINUE";
+            continueBtn.classList.remove("hidden");
+        }
+    }
 
-    <!-- 📜 JavaScript -->
-    <script src="script.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAYER TWO IS ONLINE</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    continueBtn.addEventListener("click", function () {
+        if (currentScene < scenes.length - 1) {
+            displayScene(currentScene + 1);
+        }
+    });
 
-    <!-- PAGE 1: LOADING SCREEN -->
-    <div id="page1" class="page active">
-        <p class="glitch-text">LOADING... PLEASE WAIT.</p>
-        <button onclick="nextPage()">CONTINUE</button>
-    </div>
+    // 🎭 Transition from Loading to Username Screen
+    setTimeout(() => {
+        loadingScreen.classList.add("hidden");
+        usernameScreen.classList.remove("hidden");
+    }, 3000);
 
-    <!-- PAGE 2: USERNAME ENTRY -->
-    <div id="page2" class="page">
-        <p>Sign up. Enter your username. It matters.</p>
-        <input type="text" id="username-input" placeholder="Enter username...">
-        <button onclick="nextPage()">CONTINUE</button>
-    </div>
+    // 📝 Handle Username Submission
+    usernameSubmit.addEventListener("click", () => {
+        playerName = usernameInput.value.trim();
+        if (!playerName) {
+            alert("Enter your name. It matters.");
+            return;
+        }
 
-    <!-- PAGE 3: SECURITY QUESTION -->
-    <div id="page3" class="page">
-        <p>Choose a security question.</p>
-        <select id="security-question">
-            <option value="lie">What was the first lie you told that ever came true?</option>
-            <option value="face">If someone else was wearing your face, would you want to know?</option>
-            <option value="missing">Where were you on the night you went missing?</option>
-        </select>
-        <input type="text" id="security-answer" placeholder="Type your answer...">
-        <button onclick="nextPage()">CONTINUE</button>
-    </div>
+        usernameScreen.classList.add("hidden");
+        securityScreen.classList.remove("hidden");
+    });
 
-    <!-- PAGE 4: HORROR STARTS -->
-    <div id="page4" class="page">
-        <p class="glitch-text">USERNAME TAKEN.</p>
-        <p>WELCOME BACK.</p>
-        <p>YOU HAVE BEEN HERE BEFORE.</p>
-        <button onclick="nextPage()">CONTINUE</button>
-    </div>
+    // 🔥 Handle Security Question Submission
+    securitySubmit.addEventListener("click", () => {
+        userAnswer = securityAnswer.value.trim();
+        if (!userAnswer) {
+            alert("Answer the question. It’s important.");
+            return;
+        }
 
-    <!-- PAGE 5: TRAIN STATION -->
-    <div id="page5" class="page">
-        <p>[The screen loads an old train station. The lighting is off—too bright, too dim. The air is thick, buzzing.]</p>
-        <p>SYSTEM MESSAGE: "How much do you remember?"</p>
-        <button onclick="nextPage()">I remember everything.</button>
-        <button onclick="nextPage()">I don’t remember anything.</button>
-        <button onclick="nextPage()">What is this?</button>
-    </div>
+        console.log(`POLL LOG: Username: ${playerName}, Question: ${securityQuestion.value}, Answer: ${userAnswer}`);
 
-    <!-- PAGE 6: CUBE -->
-    <div id="page6" class="page">
-        <p>A Rubik’s Cube sits on a bench. Old, battered. Familiar.</p>
-        <button onclick="nextPage()">Pick up the Cube</button>
-    </div>
+        securityScreen.classList.add("hidden");
+        horrorScreen.classList.remove("hidden");
+        sceneContainer.classList.remove("hidden");
 
-    <!-- PAGE 7: END SEQUENCE -->
-    <div id="page7" class="page">
-        <p>[A convenience store. Two kids laughing. A Rubik’s Cube in their hands.]</p>
-        <p>??? "Hey, check this out." "I think I figured it out."</p>
-        <p>*A slip of paper inside the Cube.*</p>
-        <p class="glitch-text">DON’T PLAY. DON’T TRUST IT. GET OUT BEFORE IT’S TOO LATE.</p>
-        <p>[LOADING... PLEASE WAIT.]</p>
-    </div>
-
-    <!-- 🎵 Hidden Music -->
-    <iframe id="background-music" style="display: none;" 
-        src="https://open.spotify.com/embed/track/66MP31dDAEV6rsmMKDVm9o?utm_source=generator"
-        wid
-
-
+        displayScene(0); // Start the horror sequence
+    });
+});
 
