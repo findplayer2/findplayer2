@@ -7,18 +7,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Loading Screen -->
   <div id="loading-screen" class="screen">
     <h1>You finally found me.</h1>
     <p id="waiting-text">I was starting to think you wouldn’t.</p>
-  </div>
-
-  <!-- Welcome Screen (Username, City input) -->
-  <div id="welcome-screen" class="screen hidden">
-    <p id="real-check">"You’re still real, right? Don’t turn it off this time."</p>
-    <input type="text" id="player-name" placeholder="Enter your name..." />
-    <input type="text" id="player-city" placeholder="Enter your city..." />
-    <button id="start-button">Start</button>
   </div>
 
   <!-- Choices Screen -->
@@ -31,7 +24,7 @@
     <button id="proceed-button" class="hidden">Continue</button>
   </div>
 
-  <!-- Story Sequences (Rubik's Cube Scene) -->
+  <!-- Story Sequences -->
   <div id="story-container" class="screen hidden">
     <p id="story-text">A Rubik’s Cube sits on a bench. Old, battered. Familiar.</p>
     <button class="choice-button" id="pick-up-btn">Pick up the Cube</button>
