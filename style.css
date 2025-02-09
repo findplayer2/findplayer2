@@ -1,96 +1,52 @@
-/* General Styles */
-body {
-  margin: 0;
-  padding: 0;
-  background: black;
-  color: white;
-  font-family: 'Courier New', monospace;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
+// DOM elements
+const loadingScreen = document.getElementById('loading-screen');
+const welcomeScreen = document.getElementById('welcome-screen');
+const startButton = document.getElementById('start-button');
+const choicesScreen = document.getElementById('choices-screen');
+const proceedButton = document.getElementById('proceed-button');
+const storyContainer = document.getElementById('story-container');
 
-#game-container {
-  width: 100%;
-  max-width: 600px;
-}
+// Click on the Loading Screen to Transition
+loadingScreen.addEventListener('click', () => {
+  loadingScreen.style.display = 'none';
+  welcomeScreen.style.display = 'flex'; // Show the welcome screen after click
+});
 
-.screen {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+// Start Button Logic
+startButton.addEventListener('click', () => {
+  const playerName = document.getElementById('player-name').value.trim();
+  const playerCity = document.getElementById('player-city').value.trim();
 
-.hidden {
-  display: none;
-}
+  if (!playerName || !playerCity) {
+    alert('Please enter both your name and city.');
+    return;
+  }
 
-#loading-screen {
-  display: flex;
-  animation: fadeIn 3s;
-}
+  welcomeScreen.style.display = 'none';
+  choicesScreen.style.display = 'block';
+});
 
-.blinking {
-  font-size: 24px;
-  animation: blink 1.5s infinite;
-}
+// Choice Buttons Logic
+document.querySelectorAll('.choice-button').forEach(button => {
+  button.addEventListener('click', (e) => {
+    const choice = e.target.dataset.choice;
+    const resultText = document.getElementById('choice-result');
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
+    if (choice === 'everything') {
+      resultText.textContent = '"No, you don’t."';
+    } else if (choice === 'nothing') {
+      resultText.textContent = '"Not yet."';
+    } else if (choice === 'what') {
+      resultText.textContent = '"You’ll see."';
+    }
 
-#dialogue-text {
-  font-size: 18px;
-  margin: 20px;
-  line-height: 1.5;
-  text-shadow: 0 0 5px #ff0000, 0 0 10px #00ff00;
-}
+    resultText.style.display = 'block';
+    proceedButton.style.display = 'block';
+  });
+});
 
-#choices button {
-  margin: 10px;
-  padding: 10px 20px;
-  background: #111;
-  color: white;
-  border: 1px solid #555;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-}
-
-#choices button:hover {
-  background: #444;
-  color: #fff;
-}
-
-#end-text {
-  font-size: 24px;
-  text-shadow: 0px 0px 5px red, 0px 0px 5px blue;
-  animation: glitch 0.5s infinite alternate;
-}
-
-#glitch-overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url('https://opengameart.org/sites/default/files/scanline.png') repeat;
-  mix-blend-mode: overlay;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes glitch {
-  0% { transform: skew(-2deg, -2deg); }
-  50% { transform: skew(2deg, 2deg); }
-  100% { transform: skew(-1deg, 1deg); }
-}
-
+// Proceed Button Logic
+proceedButton.addEventListener('click', () => {
+  window.location.href = 'scene.html'; // Go to scene.html
+});
 
