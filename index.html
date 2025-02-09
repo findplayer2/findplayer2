@@ -3,92 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eerie Interactive Site</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>FindPlayer2 - Welcome</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <!-- Welcome screen -->
-        <div class="welcome-screen">
-            <p id="welcome-text">Welcome back! You finally found me.</p>
-            <input type="text" id="username" placeholder="Enter your name..." />
+        <!-- Welcome Screen -->
+        <div id="welcome-screen">
+            <h1 class="glitch" data-text="FindPlayer2">FindPlayer2</h1>
+            <p id="welcome-text">"Welcome back. I’ve been waiting."</p>
+            <input type="text" id="username" placeholder="Enter your name...">
             <button id="start-btn">Start</button>
         </div>
-
-        <!-- Character customization screen -->
-        <div id="character-customization" style="display:none;">
-            <p id="customize-text">Let's make you look perfect today! You can customize yourself.</p>
-            <div>
-                <label for="hair">Hair color:</label>
-                <select id="hair">
-                    <option value="blue">Blue</option>
-                    <option value="pink">Pink</option>
-                    <option value="green">Green</option>
-                    <option value="black">Black</option>
-                </select>
-            </div>
-            <button id="submit-customization">Submit</button>
-        </div>
-
-        <!-- Glitched and eerie display -->
-        <div id="glitch-screen" style="display:none;">
-            <p id="glitch-text">It’s been two years. Do you remember him?</p>
-        </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
-<!-- HTML for the LOADING screen -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Screen</title>
-</head>
-<body>
-    <div id="loading-screen">
-        <h1>LOADING... PLEASE WAIT</h1>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-<!-- HTML for the Character Customization Screen -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Character Customization</title>
-</head>
-<body>
-    <div id="customization-screen">
-        <h2>Customize Your Character</h2>
-        <div id="character-display">
-            <img id="character" src="chibi_default.png" alt="Chibi Character">
-        </div>
-
-        <!-- Buttons for character customization -->
-        <button onclick="changeHairColor('blue')">Blue Hair</button>
-        <button onclick="changeClothing('casual')">Casual Clothing</button>
-        <button onclick="triggerGlitch()">Trigger Glitch</button>
-
-        <!-- Hidden eerie message -->
-        <p id="eerie-text" style="display:none;">"You're still real, right? Don't turn it off this time."</p>
-        
-        <h2>Choose Your World</h2>
-        <!-- Buttons to change background -->
-        <button onclick="changeBackground('train_station')">Train Station</button>
-        <button onclick="changeBackground('summer_fireflies')">Summer Fireflies</button>
-        <button onclick="changeBackground('stormy_night')">Stormy Night</button>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-<!-- In index.html -->
-<a href="scene.html">
-  <button>Start Game</button>
-</a>
