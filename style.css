@@ -30,5 +30,26 @@ body {
   50% { opacity: 1; }
   100% { opacity: 0.1; }
 }
+/* Intro Screen Styling */
+.hidden {
+  display: none;
+}
+
+button {
+  background-color: black;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'ArcadeClassic', monospace;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #00ff00;
+  color: black;
+  border-color: black;
+}
 
 
