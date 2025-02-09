@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FindPlayer2</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player Two Is Online</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Welcome Screen -->
-    <div id="welcome-screen">
-        <h1 class="glitch">Welcome Back</h1>
-        <p class="glitch">"I've been waiting. Enter your name and city."</p>
-        <input type="text" id="player-name" placeholder="Enter your name..." />
-        <input type="text" id="player-city" placeholder="Enter your city..." />
-        <button id="start-button">Start</button>
-        <ul id="player-list" class="hidden"></ul> <!-- Hidden list for debug -->
-    </div>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <h1>LOADING... PLEASE WAIT</h1>
+    <div id="loading-bar"></div>
+  </div>
 
-    <!-- Character Selection -->
-    <div id="character-selection" class="hidden">
-        <h2>Choose Your Character</h2>
-        <img id="neutral-chibi" src="neutral-chibi.png" alt="Neutral Chibi">
-        <div class="character-options">
-            <button id="choose-girl">Girl</button>
-            <button id="choose-boy">Boy</button>
-        </div>
-    </div>
+  <!-- Welcome Screen -->
+  <div id="welcome-screen" style="display: none;">
+    <h1 class="glitch">Welcome Back</h1>
+    <p class="glitch">"I've been waiting. Enter your name and city."</p>
+    <input type="text" id="player-name" placeholder="Enter your name..." />
+    <input type="text" id="player-city" placeholder="Enter your city..." />
+    <button id="start-button">Start</button>
+  </div>
 
-    <!-- Nostalgic Scene -->
-    <div id="nostalgic-scene" class="hidden">
-        <img id="background-image" src="sunny.png" alt="Sunny Background">
-        <h2 id="welcome-text"></h2>
-        <img id="character-image" alt="Selected Character">
-        <p id="story-text">"It's time to begin your journey..."</p>
-    </div>
+  <!-- Choices Screen -->
+  <div id="choices-screen" style="display: none;">
+    <h2>How much do you remember?</h2>
+    <button class="choice-button" data-choice="everything">"I remember everything."</button>
+    <button class="choice-button" data-choice="nothing">"I don’t remember anything."</button>
+    <button class="choice-button" data-choice="what">"What is this?"</button>
+    <p id="choice-result"></p>
+    <button id="proceed-button" style="display: none;">Continue</button>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-<img id="background-image" src="https://raw.githubusercontent.com/findplayer2/findplayer2/main/sunny.png" alt="Sunny Background">
-<img id="neutral-chibi" src="https://raw.githubusercontent.com/findplayer2/findplayer2/main/neutral-chibi.png" alt="Neutral Chibi">
-<img id="girl-character" class="hidden" src="https://raw.githubusercontent.com/findplayer2/findplayer2/main/girl-character.png" alt="Girl Character">
-<img id="boy-character" class="hidden" src="https://raw.githubusercontent.com/findplayer2/findplayer2/main/boy-character.png" alt="Boy Character">
