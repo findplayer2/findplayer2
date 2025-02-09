@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const loginMessage = document.getElementById("login-message");
     const messageScreen = document.getElementById("message-screen");
     const messageText = document.getElementById("message-text");
+    const music = document.getElementById("background-music");
 
     let messageIndex = 0;
     let messages = [
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "WELCOME BACK."
     ];
 
-    // 📌 Handle Login Attempt
+    // 🎭 Handle Login Attempt
     loginButton.addEventListener("click", function() {
         let username = usernameInput.value.trim();
         let password = passwordInput.value.trim();
@@ -37,14 +38,18 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Simulate "Username Taken"
+        // 🩸 Simulate "Username Taken"
         loginMessage.textContent = "Username taken...";
         loginMessage.classList.remove("hidden");
 
-        // Wait and transition to creepy messages
+        // ⏳ Wait 2 seconds, then show horror sequence
         setTimeout(() => {
             loginScreen.classList.add("hidden");
             messageScreen.classList.remove("hidden");
+
+            // 🎵 Play Spotify Music
+            music.src += "&autoplay=1"; // Try forcing autoplay
+
             displayNextMessage();
         }, 2000);
     });
@@ -64,5 +69,3 @@ document.addEventListener("DOMContentLoaded", function() {
         displayNextMessage();
     });
 });
-
-
