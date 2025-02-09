@@ -76,3 +76,18 @@ function chooseCharacter(name) {
     document.getElementById('game-screen').style.display = 'block';
     document.getElementById('character-name').textContent = name;
 }
+let dialogues = [
+    "Welcome back. I was waiting for you...",
+    "Did you forget something?",
+    "The world has always been leaving."
+];
+let index = 0;
+
+function nextDialogue() {
+    index++;
+    if (index < dialogues.length) {
+        document.getElementById('dialogue-text').textContent = dialogues[index];
+    } else {
+        document.getElementById('dialogue-box').style.display = 'none';
+    }
+}
