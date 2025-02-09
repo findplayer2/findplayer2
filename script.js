@@ -66,3 +66,58 @@ function displayDialogue() {
 if (nextButton) {
     nextButton.addEventListener('click', displayDialogue);
 }
+// script.js
+
+// DOM Elements
+const startBtn = document.getElementById('start-btn');
+const submitAvatarBtn = document.getElementById('submit-avatar');
+const nextDialogueBtn = document.getElementById('next-dialogue');
+
+const welcomeScreen = document.getElementById('welcome-screen');
+const customizationScreen = document.getElementById('customization-screen');
+const gameScene = document.getElementById('game-scene');
+
+const playerNameInput = document.getElementById('player-name');
+const statusText = document.getElementById('status-text');
+const dialogueText = document.getElementById('dialogue-text');
+
+// Dialogue Array
+const dialogues = [
+    "Welcome back... I was waiting for you.",
+    "It’s been two years. Do you remember him?",
+    "The map unfolds. The story resets.",
+    "Somewhere, a train is moving through the night."
+];
+let dialogueIndex = 0;
+
+// Start Button Logic
+startBtn.addEventListener('click', () => {
+    const playerName = playerNameInput.value.trim();
+    if (!playerName) {
+        alert("Please enter your name!");
+        return;
+    }
+
+    statusText.innerText = `Player 1: Online. Player 2: Searching...`;
+    setTimeout(() => {
+        welcomeScreen.style.display = 'none';
+        customizationScreen.style.display = 'flex';
+    }, 1000);
+});
+
+// Avatar Customization
+submitAvatarBtn.addEventListener('click', () => {
+    customizationScreen.style.display = 'none';
+    gameScene.style.display = 'flex';
+});
+
+// Dialogue Logic
+nextDialogueBtn.addEventListener('click', () => {
+    dialogueIndex++;
+    if (dialogueIndex < dialogues.length) {
+        dialogueText.innerText = dialogues[dialogueIndex];
+    } else {
+        dialogueText.innerText = "The game resets...";
+        nextDialogueBtn.style.display = 'none';
+    }
+});
