@@ -91,3 +91,18 @@ function nextDialogue() {
         document.getElementById('dialogue-box').style.display = 'none';
     }
 }
+let dialogues = [
+    "Welcome back... I was waiting for you.",
+    "You finally returned... but something is different.",
+    "The world feels... wrong. You feel it too, right?"
+];
+let dialogueIndex = 0;
+
+function nextDialogue() {
+    dialogueIndex++;
+    if (dialogueIndex < dialogues.length) {
+        document.getElementById('dialogue-text').textContent = dialogues[dialogueIndex];
+    } else {
+        document.getElementById('dialogue-box').style.display = 'none';
+    }
+}
