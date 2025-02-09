@@ -4,49 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FindPlayer2</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <h1 id="loading-text">LOADING... PLEASE WAIT.</h1>
+        <p id="cursor-blink">_</p>
+    </div>
+
     <!-- Welcome Screen -->
-    <div class="welcome-screen" id="welcome-screen">
-        <h1>FindPlayer2</h1>
-        <p>"Welcome back. I've been waiting."</p>
-        <input type="text" id="username" placeholder="Enter your name..." required>
-        <button id="start-btn">Start</button>
+    <div id="welcome-screen" class="hidden">
+        <h1 class="glitch">WELCOME BACK</h1>
+        <p class="glitch">"You have been here before."</p>
+        <p class="glitch">"Why did you come back?"</p>
+        <button id="continue-button">Continue</button>
     </div>
 
-  <div id="character-selection" class="scene hidden">
-    <h2>Who are you?</h2>
-    <div class="characters">
-      <div class="character">
-        <img src="./assets/sprites/girl-idle.png" alt="Girl" class="character-img">
-        <button class="select-btn" data-character="girl">Choose Girl</button>
-      </div>
-      <div class="character">
-        <img src="./assets/sprites/boy-idle.png" alt="Boy" class="character-img">
-        <button class="select-btn" data-character="boy">Choose Boy</button>
-      </div>
+    <!-- Train Station Scene -->
+    <div id="train-scene" class="hidden">
+        <h2 class="glitch">"The train is still moving."</h2>
+        <p class="glitch">"How much do you remember?"</p>
+        <div id="choices">
+            <button data-choice="remember-everything">"I remember everything."</button>
+            <button data-choice="remember-nothing">"I don’t remember anything."</button>
+            <button data-choice="what-is-this">"What is this?"</button>
+        </div>
     </div>
-  </div>
 
-  <div id="story-scene" class="scene hidden">
-    <img id="background" src="./assets/backgrounds/sunny.png" alt="Background">
-    <div id="dialogue-box">
-      <p id="dialogue">"Welcome back, <span id="player-name"></span>. Let’s begin your story."</p>
-      <button id="next-btn">Next</button>
+    <!-- Notebook Scene -->
+    <div id="notebook-scene" class="hidden">
+        <h2 class="glitch">THE NAMES OF THE LOST</h2>
+        <ul id="name-list">
+            <!-- Names dynamically inserted here -->
+        </ul>
+        <p class="glitch">"Why is your name here?"</p>
     </div>
-  </div>
-<div id="welcome-screen">
-    <h1 class="glitch">WELCOME BACK</h1>
-    <p class="glitch">SYSTEM REBOOT: ENTITY DETECTED. IDENTITY CONFIRMATION REQUIRED.</p>
-    <p class="glitch small">"Somewhere, someone is still playing..."</p>
-    <input type="text" id="player-name" placeholder="Enter your name..." />
-    <input type="text" id="player-city" placeholder="Enter your city..." />
-    <button id="start-button">Access Protocol</button>
-    <p class="small hidden" id="trace-log">TRACE LOG: Searching for Player 2...</p>
-</div>
-<div id="nostalgic-scene" class="hidden">
-    <img id="background-image" src="https://raw.githubusercontent.com/findplayer2/findplayer2/main/sunny.png" alt="Sunny Background">
-    <img id="girl-character" class="hidden" src="https://raw.githubusercontent.com/findplayer2/findplayer2/main/girl-character.png" alt="Girl Character">
-    <img id="boy-character" class="hidden" src="https://raw.githubusercontent.com/findplayer2/findplayer2/main/boy-character.png" alt="Boy Character">
-</div>
+
+    <!-- Glitching Train Scene -->
+    <div id="glitch-scene" class="hidden">
+        <h2 class="glitch">"The game is breaking."</h2>
+        <p class="glitch">"You are the anomaly."</p>
+    </div>
+
+    <!-- Loop Back Scene -->
+    <div id="final-loop" class="hidden">
+        <h2 class="glitch">LOADING... PLEASE WAIT.</h2>
+        <p class="glitch">"Don’t trust it. Don’t play."</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
