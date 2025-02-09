@@ -3,24 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Two Is Online</title>
+    <title>PLAYER TWO IS ONLINE</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="game-container">
-        <div id="game-text"></div>
-        <div id="choices-container"></div>
-        <button id="continue-btn" class="hidden">CONTINUE</button>
+    <!-- 💀 Loading Screen -->
+    <div id="loading-screen">
+        <p class="glitch-text">LOADING... PLEASE WAIT.</p>
     </div>
 
-    <!-- Eerie Sound Effects -->
-    <audio id="static-sound" src="sounds/static.mp3" preload="auto"></audio>
-    <audio id="train-sound" src="sounds/train-horn.mp3" preload="auto"></audio>
-    <audio id="whisper-sound" src="sounds/whisper.mp3" preload="auto"></audio>
+    <!-- 👁️ Username Entry -->
+    <div id="username-screen" class="hidden">
+        <p class="glitch-text">Sign up. Enter your username. It matters.</p>
+        <input type="text" id="username-input" placeholder="Enter username...">
+        <button id="username-submit">CONTINUE</button>
+    </div>
 
+    <!-- 💀 Security Question -->
+    <div id="security-screen" class="hidden">
+        <p class="glitch-text">Choose a security question.</p>
+        <select id="security-question">
+            <option value="lie">What was the first lie you told that ever came true?</option>
+            <option value="face">If someone else was wearing your face, would you want to know?</option>
+            <option value="missing">Where were you on the night you went missing?</option>
+        </select>
+        <input type="text" id="security-answer" placeholder="Type your answer...">
+        <button id="security-submit">CONTINUE</button>
+    </div>
+
+    <!-- 🔥 Horror Message Screen -->
+    <div id="horror-screen" class="hidden">
+        <p id="horror-text"></p>
+        <button id="continue-btn">CONTINUE</button>
+    </div>
+
+    <!-- 👁️ Fate is Watching Popup -->
+    <div id="popup-message" class="hidden">
+        <p>FATE IS WATCHING.</p>
+    </div>
+
+    <!-- 📜 JavaScript -->
     <script src="script.js"></script>
-
 </body>
 </html>
 
