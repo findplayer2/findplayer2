@@ -15,30 +15,28 @@
         <button id="start-btn">Start</button>
     </div>
 
-    <!-- Scene Screen -->
-    <div class="scene-screen" id="scene-screen" style="display: none;">
-        <h1>Welcome Back</h1>
-        <p id="player-greeting"></p>
-        <div id="avatar-creation">
-            <h2>Create Your Avatar</h2>
-            <label for="hair">Hair Color:</label>
-            <select id="hair">
-                <option value="blue">Blue</option>
-                <option value="pink">Pink</option>
-                <option value="green">Green</option>
-                <option value="black">Black</option>
-            </select>
-
-            <label for="expression">Expression:</label>
-            <select id="expression">
-                <option value="happy">Happy</option>
-                <option value="sad">Sad</option>
-                <option value="angry">Angry</option>
-            </select>
-            <button id="done-btn">Done</button>
-        </div>
+  <div id="character-selection" class="scene hidden">
+    <h2>Who are you?</h2>
+    <div class="characters">
+      <div class="character">
+        <img src="./assets/sprites/girl-idle.png" alt="Girl" class="character-img">
+        <button class="select-btn" data-character="girl">Choose Girl</button>
+      </div>
+      <div class="character">
+        <img src="./assets/sprites/boy-idle.png" alt="Boy" class="character-img">
+        <button class="select-btn" data-character="boy">Choose Boy</button>
+      </div>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <div id="story-scene" class="scene hidden">
+    <img id="background" src="./assets/backgrounds/sunny.png" alt="Background">
+    <div id="dialogue-box">
+      <p id="dialogue">"Welcome back, <span id="player-name"></span>. Let’s begin your story."</p>
+      <button id="next-btn">Next</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
