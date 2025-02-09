@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const messageScreen = document.getElementById("message-screen");
     const messageText = document.getElementById("message-text");
     const music = document.getElementById("background-music");
+    const heartbeat = document.getElementById("heartbeat");
+    const trainSound = document.getElementById("train-sound");
 
     let messageIndex = 0;
     let messages = [
@@ -41,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // 🩸 Simulate "Username Taken"
         loginMessage.textContent = "Username taken...";
         loginMessage.classList.remove("hidden");
+        loginMessage.classList.add("glitch"); // 👾 Add Glitch Effect
 
         // ⏳ Wait 2 seconds, then show horror sequence
         setTimeout(() => {
@@ -48,7 +51,12 @@ document.addEventListener("DOMContentLoaded", function() {
             messageScreen.classList.remove("hidden");
 
             // 🎵 Play Spotify Music
-            music.src += "&autoplay=1"; // Try forcing autoplay
+            music.src += "&autoplay=1";
+
+            // 🔊 Start Background SFX (Heartbeat & Train)
+            heartbeat.play();
+            trainSound.play();
+            trainSound.volume = 0.6;
 
             displayNextMessage();
         }, 2000);
@@ -59,8 +67,21 @@ document.addEventListener("DOMContentLoaded", function() {
         if (messageIndex < messages.length) {
             messageText.innerHTML = messages[messageIndex];
             messageIndex++;
+
+            // 🔄 Add Glitch Effect Randomly
+            if (Math.random() > 0.7) {
+                messageText.classList.add("glitch");
+            } else {
+                messageText.classList.remove("glitch");
+            }
+
         } else {
             messageText.innerHTML = "WELCOME BACK.";
+        }
+
+        // 🕵️‍♂️ Randomly Trigger "Someone is Watching" Effect
+        if (Math.random() > 0.8) {
+            flickerScreen();
         }
     }
 
@@ -68,4 +89,13 @@ document.addEventListener("DOMContentLoaded", function() {
     messageScreen.addEventListener("click", () => {
         displayNextMessage();
     });
+
+    // 👀 SCREEN FLICKER EFFECT (Random "Someone is Watching")
+    function flickerScreen() {
+        document.body.style.backgroundColor = "white";
+        setTimeout(() => {
+            document.body.style.backgroundColor = "black";
+        }, 100);
+    }
 });
+
