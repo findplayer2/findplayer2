@@ -1,150 +1,46 @@
 /* General Styles */
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Courier New', monospace;
+    background-color: black;
+    color: white;
     text-align: center;
-    color: white;
 }
 
-/* Glitchy Welcome Screen */
-#welcome-screen {
-    background: black;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-input {
-    margin: 10px;
-    padding: 10px;
-    font-size: 16px;
-    width: 250px;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    background-color: #333;
-    color: white;
-    border: none;
-    transition: all 0.2s;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-/* Glitch Animation */
-.glitch {
-    font-size: 2rem;
-    text-shadow: 2px 0 red, -2px 0 blue;
-    animation: glitch-animation 0.5s infinite alternate;
-}
-
-@keyframes glitch-animation {
-    0% { transform: translateX(-2px); }
-    100% { transform: translateX(2px); }
-}
-
-/* Hidden Sections */
 .hidden {
     display: none;
 }
 
-/* Character Selection */
-#character-selection {
-    background: #f4f1f9;
-    color: #333;
-    height: 100vh;
+.glitch {
+    animation: glitch-animation 1s infinite;
+}
+
+@keyframes glitch-animation {
+    0% { text-shadow: 2px 0 red, -2px 0 blue; }
+    50% { text-shadow: -2px 0 red, 2px 0 blue; }
+    100% { text-shadow: 2px 0 red, -2px 0 blue; }
+}
+
+/* Loading Screen */
+#loading-screen {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
-
-.character-options {
-    margin-top: 20px;
-}
-
-.character-options button {
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #ffd1dc;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    border-radius: 5px;
-}
-
-#neutral-chibi {
-    width: 150px;
-    margin: 20px;
-}
-
-/* Nostalgic Scene */
-#nostalgic-scene {
-    background-color: #ffe4e6;
-    background-image: url('sunny.png');
-    background-size: cover;
-    background-position: center;
+    justify-content: center;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-#character-image {
-    width: 150px;
-    margin: 20px;
+#cursor-blink {
+    animation: blink 1s infinite;
 }
 
-#story-text {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    color: #333;
+@keyframes blink {
+    50% { opacity: 0; }
 }
-/* Welcome Screen - Dark and Glitchy Vibes */
-#welcome-screen {
-    text-align: center;
-    background-color: #0a0a0a;
-    color: #fff;
-    font-family: 'Courier New', monospace;
+
+/* Scenes */
+#train-scene, #notebook-scene, #glitch-scene, #final-loop {
     padding: 20px;
-    border: 2px solid #00ff99;
-    margin: 20px auto;
-    max-width: 600px;
-    box-shadow: 0 0 20px rgba(0, 255, 153, 0.6);
 }
 
-.glitch {
-    animation: glitch-animation 1.5s infinite;
-    text-shadow: 
-        1px 0 red, -1px 0 blue,
-        0 1px green, 0 -1px yellow;
-}
-
-@keyframes glitch-animation {
-    0% {
-        transform: translateX(2px);
-    }
-    50% {
-        transform: translateX(-2px);
-    }
-    100% {
-        transform: translateX(2px);
-    }
-}
-
-.small {
-    font-size: 12px;
-    color: #cccccc;
-}
-
-.hidden {
-    display: none;
-}
