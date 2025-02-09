@@ -1,58 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAYER TWO IS ONLINE</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
-</head>
-<body>
+<!-- USERNAME INPUT SCREEN -->
+<div id="username-screen" class="hidden">
+  <p class="input-text">SIGN UP. ENTER YOUR USERNAME. IT MATTERS.</p>
+  <input type="text" id="username-input" placeholder="Enter your username...">
+  <button id="username-submit">CONTINUE</button>
+</div>
 
-    <!-- 💀 LOADING SCREEN -->
-    <div id="loading-screen" class="page active">
-        <p class="glitch-text">LOADING... PLEASE WAIT.</p>
-    </div>
-
-    <!-- 📝 USERNAME ENTRY -->
-    <div id="username-screen" class="page">
-        <p class="chatbox">Sign up. Enter your username. It matters.</p>
-        <input type="text" id="username-input" placeholder="Enter username...">
-        <button id="username-submit">CONTINUE</button>
-    </div>
-
-    <!-- 🔐 SECURITY QUESTION -->
-    <div id="security-screen" class="page">
-        <p class="chatbox">Choose a security question.</p>
-        <select id="security-question">
-            <option value="lie">What was the first lie you told that ever came true?</option>
-            <option value="face">If someone else was wearing your face, would you want to know?</option>
-            <option value="missing">Where were you on the night you went missing?</option>
-        </select>
-        <input type="text" id="security-answer" placeholder="Type your answer...">
-        <button id="security-submit">CONTINUE</button>
-    </div>
-
-    <!-- 🎭 HORROR SEQUENCE -->
-    <div id="horror-screen" class="page">
-        <div id="scene-container">
-            <p id="scene-text">LOADING... PLEASE WAIT.</p>
-            <div id="choices-container"></div>
-            <button id="continue-btn" class="hidden">CONTINUE</button>
-        </div>
-    </div>
-
-    <!-- 🎵 HIDDEN MUSIC PLAYER -->
-    <iframe id="background-music" style="display: none;" 
-        src="https://open.spotify.com/embed/track/66MP31dDAEV6rsmMKDVm9o?utm_source=generator"
-        width="0" height="0" frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-    </iframe>
-
-    <!-- 📜 SCRIPT -->
-    <script src="script.js"></script>
-
-</body>
-</html>
 
 
