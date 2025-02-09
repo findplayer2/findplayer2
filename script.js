@@ -41,70 +41,73 @@ document.querySelectorAll('.choice-button').forEach(button => {
       choiceResult.textContent = '"You’ll see."';
     }
 
-    choiceResult.style.display = 'block'; // Show result text
-    proceedBtn.style.display = 'inline'; // Show the "Continue" button
-  });
+    c// DOM elements
+const loadingScreen = document.getElementById('loading-screen');
+const storyContainer = document.getElementById('story-container');
+const choiceResult = document.getElementById('choice-result');
+const proceedButton = document.getElementById('proceed-button');
+const storyText = document.getElementById('story-text');
+const pickUpBtn = document.getElementById('pick-up-btn');
+const leaveBtn = document.getElementById('leave-btn');
+
+// Loading screen logic – triggered by the first click
+loadingScreen.addEventListener('click', () => {
+  loadingScreen.style.display = 'none'; // Hide loading screen
+  storyContainer.style.display = 'flex'; // Show the story sequence
+  storyText.innerHTML = `"Wait." <br> "Something’s wrong." <br> "The train station darkens. The sky cracks."`;
 });
 
-// Story Sequence logic after user interacts with Cube
-proceedBtn.addEventListener('click', () => {
-  // First transition: Rubik's Cube Scene
-  storyText.innerHTML = `"Two players. That’s how it always starts." <br> "They think they’re just messing around." <br> "They solve the Cube. They unlock the game." <br> "One of them disappears." <br> "The other follows."`;
-  proceedBtn.style.display = 'none'; // Hide the proceed button
+// Story choices after the dialogue
+pickUpBtn.addEventListener('click', () => {
+  storyText.innerHTML = `"You shouldn’t be here." <br> "But you already know that, don’t you?" <br> "You always knew."`;
+  proceedButton.style.display = 'inline'; // Show the "Continue" button
+});
+
+leaveBtn.addEventListener('click', () => {
+  storyText.innerHTML = `"How long did you think you could outrun it?" <br> "How long did you think you could keep pretending?"`;
+  proceedButton.style.display = 'inline'; // Show the "Continue" button
+});
+
+// Proceed button action - Transition to next story
+proceedButton.addEventListener('click', () => {
+  storyText.innerHTML = `"Every time, two names." <br> "Pairs of kids who vanished." <br> "Every one of them played the game." <br> "Every one of them disappeared."`;
+  proceedButton.style.display = 'none'; // Hide the proceed button
+
   setTimeout(() => {
-    storyText.innerHTML = `"Then they both vanish." <br> "No one remembers them." <br> "No one remembers them." <br> "No one—"`;
-    proceedBtn.style.display = 'inline'; // Show proceed again
+    storyText.innerHTML = `"No one remembers them." <br> "The cursor moves on its own..." <br> "Two names—yours. And his."`;
+    proceedButton.style.display = 'inline'; // Show proceed again
   }, 3000); // Wait for a few seconds before the next change
 });
 
-// Next phase transition
-proceedBtn.addEventListener('click', () => {
-  storyText.innerHTML = `"Wait." <br> "Something’s wrong." <br> "The train station darkens. The sky cracks." <br> "You shouldn’t be here." <br> "But you already know that, don’t you?" <br> "You always knew."`;
-  proceedBtn.style.display = 'none'; // Hide the proceed button
-  setTimeout(() => {
-    storyText.innerHTML = `"How long did you think you could outrun it?" <br> "How long did you think you could keep pretending?" <br> "Every time, two names."`;
-    proceedBtn.style.display = 'inline'; // Show proceed again
-  }, 3000); // Wait again to increase suspense
-});
-
-// Next choice handling: Pairs of kids who vanished
-proceedBtn.addEventListener('click', () => {
-  storyText.innerHTML = `"Pairs of kids who vanished." <br> "Every one of them played the game." <br> "Every one of them disappeared." <br> "No one remembers them." <br> "The cursor moves on its own..."`;
-  proceedBtn.style.display = 'none'; // Hide the proceed button
-  setTimeout(() => {
-    storyText.innerHTML = `"Two names—yours. And his." <br> "A date: Two years ago. The night Leo disappeared." <br> "Your name shouldn’t be here."`;
-    proceedBtn.style.display = 'inline'; // Show proceed again
-  }, 3000); // Wait again for transition
-});
-
-// Final breaking point before loop closure
-proceedBtn.addEventListener('click', () => {
+// The game is breaking - Transition to next phase
+proceedButton.addEventListener('click', () => {
   storyText.innerHTML = `"This isn’t right." <br> "You were already erased." <br> "You are not supposed to be here." <br> "So why are you still here?"`;
-  proceedBtn.style.display = 'none'; // Hide the proceed button
+  proceedButton.style.display = 'none'; // Hide the proceed button
+
   setTimeout(() => {
     storyText.innerHTML = `"The pattern is failing." <br> "The game is breaking." <br> "You are the anomaly." <br> "You shouldn’t exist." <br> "But you do."`;
-    proceedBtn.style.display = 'inline'; // Show proceed again
-  }, 3000); // Wait before ending
+    proceedButton.style.display = 'inline'; // Show proceed again
+  }, 3000); // Wait once more before ending
 });
 
-// Final looping choice
-proceedBtn.addEventListener('click', () => {
+// Final choices - User is presented with choices
+proceedButton.addEventListener('click', () => {
   storyText.innerHTML = `"It doesn’t matter." <br> "The train is still moving." <br> "It always was." <br> "You know how this ends."`;
-  proceedBtn.style.display = 'none'; // Hide the proceed button
+  proceedButton.style.display = 'none'; // Hide the proceed button
+
   setTimeout(() => {
     storyText.innerHTML = `"The game begins again." <br> "But this time..." <br> "A slip of paper inside the Cube." <br> "A message, handwritten. Your handwriting." <br> "DON’T PLAY. DON’T TRUST IT. GET OUT BEFORE IT’S TOO LATE."`;
-    proceedBtn.style.display = 'inline'; // Show proceed again
-  }, 3000); // Final wait
+    proceedButton.style.display = 'inline'; // Show proceed again
+  }, 3000); // Final delay before looping
 });
 
-// End sequence and loop closure
-proceedBtn.addEventListener('click', () => {
+// Final loop and end
+proceedButton.addEventListener('click', () => {
   storyText.innerHTML = `"But they don’t listen." <br> "They never do." <br> "[LOADING... PLEASE WAIT.]"`;
-  proceedBtn.style.display = 'none'; // Hide button for final closure
+  proceedButton.style.display = 'none'; // Hide the button for final closure
+
   setTimeout(() => {
     storyText.innerHTML = `"THIS IS NOT A GAME." <br> "It never was."`;
-    proceedBtn.style.display = 'inline'; // Show the button one last time
-  }, 3000); // Final message before closure
+    proceedButton.style.display = 'inline'; // Show the button one last time
+  }, 3000); // Wait for the final message
 });
-
-
