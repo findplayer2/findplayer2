@@ -91,3 +91,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 3000);
   });
 });
+// Loading screen logic – triggered by the first click
+loadingScreen.addEventListener('click', () => {
+  console.log('Loading screen clicked');
+  loadingScreen.style.display = 'none'; // Hide loading screen
+  welcomeScreen.style.display = 'flex'; // Show the welcome screen
+});
