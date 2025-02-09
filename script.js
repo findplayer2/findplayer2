@@ -1,48 +1,5 @@
 // DOM elements
 const loadingScreen = document.getElementById('loading-screen');
-const welcomeScreen = document.getElementById('welcome-screen');
-const startButton = document.getElementById('start-button');
-const choicesScreen = document.getElementById('choices-screen');
-const proceedBtn = document.getElementById('proceed-button');
-const storyText = document.getElementById('story-text');
-const pickUpBtn = document.getElementById('pick-up-btn');
-const leaveBtn = document.getElementById('leave-btn');
-const choiceResult = document.getElementById('choice-result');
-
-// Loading screen logic – triggered by the first click
-loadingScreen.addEventListener('click', () => {
-  loadingScreen.style.display = 'none'; // Hide loading screen
-  welcomeScreen.style.display = 'flex'; // Show the welcome screen
-});
-
-// Start button to submit name and city
-startButton.addEventListener('click', () => {
-  const playerName = document.getElementById('player-name').value.trim();
-  const playerCity = document.getElementById('player-city').value.trim();
-
-  if (!playerName || !playerCity) {
-    alert('Please enter both your name and city.');
-    return;
-  }
-
-  welcomeScreen.style.display = 'none'; // Hide welcome screen
-  choicesScreen.style.display = 'flex'; // Show choices screen
-});
-
-// Choices screen logic
-document.querySelectorAll('.choice-button').forEach(button => {
-  button.addEventListener('click', (e) => {
-    const choice = e.target.dataset.choice;
-    if (choice === 'everything') {
-      choiceResult.textContent = '"No, you don’t."';
-    } else if (choice === 'nothing') {
-      choiceResult.textContent = '"Not yet."';
-    } else if (choice === 'what') {
-      choiceResult.textContent = '"You’ll see."';
-    }
-
-    c// DOM elements
-const loadingScreen = document.getElementById('loading-screen');
 const storyContainer = document.getElementById('story-container');
 const choiceResult = document.getElementById('choice-result');
 const proceedButton = document.getElementById('proceed-button');
@@ -87,27 +44,27 @@ proceedButton.addEventListener('click', () => {
   setTimeout(() => {
     storyText.innerHTML = `"The pattern is failing." <br> "The game is breaking." <br> "You are the anomaly." <br> "You shouldn’t exist." <br> "But you do."`;
     proceedButton.style.display = 'inline'; // Show proceed again
-  }, 3000); // Wait once more before ending
+  }, 3000); // Wait before ending
 });
 
-// Final choices - User is presented with choices
+// Final looping choice
 proceedButton.addEventListener('click', () => {
   storyText.innerHTML = `"It doesn’t matter." <br> "The train is still moving." <br> "It always was." <br> "You know how this ends."`;
   proceedButton.style.display = 'none'; // Hide the proceed button
-
   setTimeout(() => {
     storyText.innerHTML = `"The game begins again." <br> "But this time..." <br> "A slip of paper inside the Cube." <br> "A message, handwritten. Your handwriting." <br> "DON’T PLAY. DON’T TRUST IT. GET OUT BEFORE IT’S TOO LATE."`;
     proceedButton.style.display = 'inline'; // Show proceed again
-  }, 3000); // Final delay before looping
+  }, 3000); // Final wait
 });
 
-// Final loop and end
+// End and final loop closure
 proceedButton.addEventListener('click', () => {
   storyText.innerHTML = `"But they don’t listen." <br> "They never do." <br> "[LOADING... PLEASE WAIT.]"`;
-  proceedButton.style.display = 'none'; // Hide the button for final closure
-
+  proceedButton.style.display = 'none'; // Hide button for final closure
   setTimeout(() => {
-    storyText.innerHTML = `"THIS IS NOT A GAME." <br> "It never was."`;
+    storyText.innerHTML = `"Somewhere, a train moves through the night.
+Somewhere, someone left.
+Somewhere, someone stayed." <br> " And the code— it’s rewriting you. WELCOME BACK."`;
     proceedButton.style.display = 'inline'; // Show the button one last time
   }, 3000); // Wait for the final message
 });
