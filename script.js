@@ -115,4 +115,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 100);
     }
 });
+<iframe id="background-music" style="display: none;" 
+    src="https://open.spotify.com/embed/track/66MP31dDAEV6rsmMKDVm9o?utm_source=generator"
+    width="0" height="0" frameBorder="0"
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+
 
