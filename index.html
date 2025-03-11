@@ -1,138 +1,72 @@
-/* Global Styles */
-body {
-    background-color: #2b2d42;
-    color: #f7f6e7;
-    font-family: 'Roboto Mono', monospace;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nia.404</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Georgia&family=Orbitron&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-header {
-    text-align: center;
-    padding: 50px 0;
-}
+    <!-- Header -->
+    <header>
+        <h1 class="glitch-text">Nia.404</h1>
+        <p class="tagline">The story’s gone. But the code still remembers.</p>
+    </header>
 
-h1.glitch-text {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 4em;
-    color: #b497bd;
-    position: relative;
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 10px;
-}
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#diary" class="nav-link">Diary</a></li>
+            <li><a href="#archive" class="nav-link">Archive</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+    </nav>
 
-h1.glitch-text::before,
-h1.glitch-text::after {
-    content: "Nia.404";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    color: #f1f900;
-    animation: glitch-anim 2s infinite linear alternate-reverse;
-}
+    <!-- Main Content -->
+    <section id="home" class="content">
+        <h2>Welcome</h2>
+        <p>This started as a school project. I wasn’t really sure what I was doing... But now, I guess I can’t stop.</p>
+        <button class="btn-coin-flip" onclick="flipCoin()">Flip the Coin</button>
+        <p id="coin-result"></p>
+    </section>
 
-h1.glitch-text::after {
-    color: #66ff99;
-    animation: glitch-anim2 1.5s infinite linear alternate-reverse;
-}
+    <section id="diary" class="content">
+        <h2>Diary</h2>
+        <p>Here is where I try to put things down. Mostly for myself. But, if you’re here, maybe you can understand.</p>
+        <div class="diary-entry">
+            <h3>Entry 1</h3>
+            <p>The world feels like it's spinning a little too fast lately...</p>
+        </div>
+    </section>
 
-@keyframes glitch-anim {
-    0% { transform: translate(-10px, -5px); }
-    100% { transform: translate(10px, 5px); }
-}
+    <section id="archive" class="content">
+        <h2>Archive</h2>
+        <ul>
+            <li><a href="#">July 2023 - The Coin Flip</a></li>
+            <li><a href="#">June 2023 - Not So Real</a></li>
+            <li><a href="#">May 2023 - The Missing Game</a></li>
+        </ul>
+    </section>
 
-@keyframes glitch-anim2 {
-    0% { transform: translate(5px, 10px); }
-    100% { transform: translate(-5px, -10px); }
-}
+    <section id="about" class="content">
+        <h2>About</h2>
+        <p>I started this site because I was supposed to. But now... I guess it’s more than that.</p>
+    </section>
 
-.tagline {
-    font-family: 'Georgia', serif;
-    font-size: 1.5em;
-    color: #f0c0b9;
-}
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Nia.404. All rights... lost?</p>
+    </footer>
 
-/* Navigation */
-nav ul {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.4);
-}
+    <!-- 404 Error Page (Hidden by Default) -->
+    <div id="error-page" class="hidden">
+        <h2>404 - Not Found</h2>
+        <p>This page doesn’t exist anymore. Or maybe it never did.</p>
+    </div>
 
-nav ul li {
-    list-style: none;
-    margin: 0 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #f7f6e7;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #f1f900;
-}
-
-/* Content Sections */
-.content {
-    padding: 40px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 2.5em;
-    color: #b497bd;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #f1f900;
-    border: none;
-    color: #2b2d42;
-    font-size: 1.2em;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #66ff99;
-}
-
-/* Diary Entry */
-.diary-entry {
-    background-color: #333333;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-}
-
-/* 404 Error Page */
-#error-page {
-    background-color: #f7f6e7;
-    color: #2b2d42;
-    padding: 50px;
-    text-align: center;
-    font-size: 2em;
-    display: none;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Footer */
-footer {
-    background-color: #333333;
-    color: #f7f6e7;
-    text-align: center;
-    padding: 20px;
-    font-size: 1em;
-}
+    <script src="script.js"></script>
+</body>
+</html>
