@@ -3,69 +3,98 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> irina's page </title>
+    <title>irina's page</title>
     <link rel="stylesheet" href="styles.css">
-</head>
-  
- <style>
+    <style>
+      /* GLOBAL STYLES */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #1a1a1a;
+        color: #e8e8e8;
+        margin: 0;
+        padding: 0;
+      }
 
-}
+      h1 {
+        text-align: center;
+        color: #ffccd5;
+        font-size: 2.5em;
+        margin-top: 50px;
+      }
 
-    /* STAMPS SECTION (Under Banner) */
-    .stamps-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-    .stamps-container img {
-      height: 60px;
-      border-radius: 5px;
-    }
+      .curated {
+        text-align: center;
+        color: #8b1c44;
+        font-style: italic;
+      }
 
-    /* NAVIGATION (Under Stamps) */
-    .top-nav {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 10px;
-    }
-    .top-nav a {
-      background: #ffccd5;
-      color: #8b1c44;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 10px;
-      text-decoration: none;
-    }
-    .top-nav a:hover {
-      background: #8b1c44;
-      color: white;
-    }
+      /* BANNER STYLING */
+      .banner {
+        padding: 20px;
+        text-align: center;
+        background-color: #2c2c2c;
+        border-bottom: 2px solid #8b1c44;
+      }
 
-  <!-- BANNER -->
-  <div class="banner">
-    <h1>⋅˚₊‧ ୨୧ ‧₊˚ hello world! ˚₊‧ ୨୧ ‧₊˚ ⋅</h1>
-    <p class="curated">welcome to my world!</p>
-</div>
+      /* STAMPS SECTION (Under Banner) */
+      .stamps-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 10px;
+      }
 
-  <!-- STAMPS -->
-  <div class="stamps-container">
-    <img src="https://64.media.tumblr.com/9553a23270b2fea42380382c6da19c5d/d75be76f682b65ab-6c/s250x400/9b4b9a9cbbc4caef8c31a462cc999e779035ad76.pnj">
-    <img src="https://64.media.tumblr.com/a93b20899dcfe4d4543764d80e42e3c8/d75be76f682b65ab-a9/s250x400/60130ffc0ba5161d17025550d9a6c0b5adbbcb0e.pnj">
-    <img src="https://64.media.tumblr.com/52f300a6c10df13ea187ab402db6b18c/d75be76f682b65ab-d0/s250x400/bd18f4f1ddb1d6120d388259e902a9467a41524b.pnj">
-  </div>
+      .stamps-container img {
+        height: 60px;
+        border-radius: 5px;
+      }
 
-  <!-- NAVIGATION -->
-  <div class="top-nav">
-    <a href="ideas.html">♥ Snapshots.mov</a>
-    <a href="memories.html">♥ Diary Log.exe</a>
-    <a href="games.html">♥ Dress Up.exe</a>
-  </div>
+      /* NAVIGATION (Under Stamps) */
+      .top-nav {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 10px;
+      }
 
-  <style>>
+      .top-nav a {
+        background: #ffccd5;
+        color: #8b1c44;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 1.1em;
+      }
 
+      .top-nav a:hover {
+        background: #8b1c44;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
 
-</body>
+    <!-- BANNER -->
+    <div class="banner">
+      <h1>⋅˚₊‧ ୨୧ ‧₊˚ hello world! ˚₊‧ ୨୧ ‧₊˚ ⋅</h1>
+      <p class="curated">welcome to my world!</p>
+    </div>
+
+    <!-- STAMPS -->
+    <div class="stamps-container">
+      <img src="https://64.media.tumblr.com/9553a23270b2fea42380382c6da19c5d/d75be76f682b65ab-6c/s250x400/9b4b9a9cbbc4caef8c31a462cc999e779035ad76.pnj" alt="Stamp 1">
+      <img src="https://64.media.tumblr.com/a93b20899dcfe4d4543764d80e42e3c8/d75be76f682b65ab-a9/s250x400/60130ffc0ba5161d17025550d9a6c0b5adbbcb0e.pnj" alt="Stamp 2">
+      <img src="https://64.media.tumblr.com/52f300a6c10df13ea187ab402db6b18c/d75be76f682b65ab-d0/s250x400/bd18f4f1ddb1d6120d388259e902a9467a41524b.pnj" alt="Stamp 3">
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="top-nav">
+      <a href="ideas.html">♥ Snapshots.mov</a>
+      <a href="memories.html">♥ Diary Log.exe</a>
+      <a href="games.html">♥ Dress Up.exe</a>
+    </div>
+
+  </body>
 </html>
