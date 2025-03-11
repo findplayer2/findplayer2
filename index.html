@@ -8,67 +8,7 @@
 </head>
   
   <style>
-    /* LOADING SCREEN */
-    .loading-screen {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: url('https://c.tenor.com/_XPI_9MmfF8AAAAd/tenor.gif') center center / cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      transition: opacity 1s ease-in-out;
-    }
 
-    /* Loading text animation */
-    .loading-text {
-      font-size: 24px;
-      color: white;
-      font-weight: bold;
-      font-family: 'MS UI Gothic', Arial, sans-serif;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-      animation: blink 1.5s infinite alternate;
-    }
-
-    @keyframes blink {
-      0% { opacity: 1; }
-      100% { opacity: 0.6; }
-    }
-
-    /* HIDE CONTENT BEFORE LOADING */
-    .content {
-    display: none;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-body {
-    background: url('https://c.tenor.com/_EbNsejinp4AAAAd/tenor.gif') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'MS UI Gothic', Arial, sans-serif;
-    color: #5e5e5e;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* Import fonts at the very top, outside of any selectors */
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Press+Start+2P&display=swap');
-
-.banner {
-    width: 80%;
-    max-width: 600px;
-    background: transparent; /* Fully transparent background */
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    position: relative;
-    font-family: 'Great Vibes', cursive;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    border: 14px dashed white; /* White lacy border */
 }
 
 
@@ -105,110 +45,10 @@ body {
       color: white;
     }
 
-    /* LAYOUT GRID */
-    .layout {
-      display: grid;
-      grid-template-columns: 250px 1fr 250px;
-      gap: 15px;
-      width: 850px;
-      margin: 20px auto;
-    }
-
-    /* LEFT COLUMN (Top Picks & Carousel) */
-    .left-column {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .polaroid img {
-      width: 100%;
-      border-radius: 5px;
-    }
-
-    /* MIDDLE COLUMN (Welcome Box) */
-    .middle-column {
-      text-align: center;
-      background: rgba(255, 245, 250, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    /* RIGHT COLUMN (RPG Profile & Inventory) */
-    .right-column {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .rpg-profile {
-      background: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      text-align: center;
-    }
-     .rpg-container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            border: 2px solid pink;
-            text-align: center;
-            width: 250px;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-        }
-        .carousel {
-            position: relative;
-            width: 120px;
-            margin: 0 auto 10px;
-        }
-        .carousel img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 2px solid #c44;
-        }
-        .carousel button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: pink;
-            border: none;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 50%;
-        }
-        .carousel .prev { left: -20px; }
-        .carousel .next { right: -20px; }
-        .inventory {
-            background: #fef5f7;
-            padding: 10px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-        .inventory p {
-            font-weight: bold;
-            color: #c44;
-        }
-        .inventory a {
-            text-decoration: none;
-            color: #c44;
-            font-size: 14px;
-            display: block;
-        }
-
-    /* FLOATING CAT ICON */
-    .cat {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 80px;
-    }
-    
-  </style>
-</head>
-<body>
   <!-- BANNER -->
   <div class="banner">
-    <h1>⋅˚₊‧ ୨୧ ‧₊˚ My Digital Archive ˚₊‧ ୨୧ ‧₊˚ ⋅</h1>
-    <p class="curated">Curated by Irina</p>
+    <h1>⋅˚₊‧ ୨୧ ‧₊˚ hello world! ˚₊‧ ୨୧ ‧₊˚ ⋅</h1>
+    <p class="curated">welcome to my world!</p>
 </div>
 
   <!-- STAMPS -->
@@ -220,104 +60,17 @@ body {
 
   <!-- NAVIGATION -->
   <div class="top-nav">
-    <a href="artgallery.html">♥ Art Archive.doc</a>
-    <a href="snapshots.html">♥ Snapshots.mov</a>
-    <a href="diary.html">♥ Diary Log.exe</a>
-    <a href="dressup.html">♥ Dress Up.exe</a>
+    <a href="ideas.html">♥ Snapshots.mov</a>
+    <a href="memories.html">♥ Diary Log.exe</a>
+    <a href="games.html">♥ Dress Up.exe</a>
   </div>
 
 <!-- MAIN LAYOUT GRID -->
 <div class="layout">
   
-    <!-- LEFT COLUMN: Memory Card & Top Picks (Neatly Combined) -->
-    <div class="left-column">
-        <div class="polaroid">
-            <a href="pages/photos.html">
-                <img src="https://64.media.tumblr.com/ec9a373127d6fae3771b19fc343b6845/19ad5a379349e848-10/s1280x1920/21bcee96e5849f14e821b8ab3cdbea62f7b0830d.jpg" alt="Photo Log">
-            </a>
-            <p><b>my digital camera sd card </b></p>
-
-            <!-- Top Picks (Inside Memory Card Bubble) -->
-            <div class="nav-box">
-                <p><b>My Top Picks</b></p>
-                <a href="artgallery.html">♥ My Favorite Piece</a>
-                <a href="#">Other Curation</a>
-            </div>
-        </div>
-    </div>
-
-          <!-- MIDDLE COLUMN: Welcome Box -->
-    <div class="middle-column">
-      <p>
-        <img src="https://files.catbox.moe/cj0vmu.webp" style="float:right; margin: 0 0 10px 10px;" alt="Decorative">
-        <b> hello world! 🎀</b> Welcome to my website! <br>
-        this is my little corner of the internet! a curation of everything i love, feel free to look around :) (✿◠‿◠)
-      </p>
-      <p><a href="pages/selfie.html">/selfie</a></p>
-    </div>
-    
-     <div class="rpg-container">
-        <div class="carousel">
-            <button class="prev" onclick="changeImage(-1)">&#10094;</button>
-            <img id="profile-image" src="https://64.media.tumblr.com/6ef1e87b277cac9c5a9172ba0032604e/1ccafae2b128622d-d9/s500x750/f990f7369780e4fa84dfe7fe95788bdeed775041.pnj" alt="RPG Profile">
-            <button class="next" onclick="changeImage(1)">&#10095;</button>
-        </div>
-        <p style="font-weight: bold;">User: <span style="color: #222;">irinaratiu</span></p>
-        <p>Level: <span style="color: #c44;">18</span></p>
-        <div class="inventory">
-            <p>Inventory</p>
-            <a href="artgallery.html">♥ Sketchbook</a>
-            <span>Film roll</span>
-            <a href="pages/diary.html">📖 Diary</a>
-            <span>Lucky charm</span>
-        </div>
-    </div>
-    
-    <script>
-        let images = [
-            "https://64.media.tumblr.com/6ef1e87b277cac9c5a9172ba0032604e/1ccafae2b128622d-d9/s500x750/f990f7369780e4fa84dfe7fe95788bdeed775041.pnj",
-            "https://64.media.tumblr.com/709fa1852043a9436d4f8ef783e4905d/c56da754bb72dd66-f0/s2048x3072/318cf56ec3930c6bbe09e31716f9ca145bfcec29.jpg"
-        ];
-        let index = 0;
-
-        function changeImage(direction) {
-            index += direction;
-            if (index < 0) index = images.length - 1;
-            if (index >= images.length) index = 0;
-            document.getElementById("profile-image").src = images[index];
-        }
-
-    <!--CAT (Floating Cat Icon) -->
-    <img class="cat" src="https://webneko.net/img/neko_silver.png" alt="Cat">
-    <script src="https://webneko.net/n20171213.js"></script>
-
-    <!-- FOOTER SECTION (Optional) -->
-    <footer style="text-align: center; margin-top: 50px; font-size: 14px; color: #5e5e5e;">
-      <p>&#169; 2025 Irina's Digital Archive. All Rights Reserved.</p>
-    </footer>
-
+   
   </div> <!-- End of Content -->
 
-  <!-- JAVASCRIPT TO REMOVE LOADING SCREEN -->
-  <script>
-    window.addEventListener("load", function () {
-      const loadingScreen = document.querySelector(".loading-screen");
-      const content = document.querySelector(".content");
-
-      if (loadingScreen && content) {
-        setTimeout(() => {
-          loadingScreen.style.opacity = "0";
-          
-          setTimeout(() => {
-            loadingScreen.style.display = "none";
-            content.style.display = "block";
-            content.style.opacity = "1";
-          }, 1000);
-          
-        }, 3000); // Adjust time if needed
-      }
-    });
-  </script>
 
 </body>
 </html>
