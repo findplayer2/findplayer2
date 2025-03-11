@@ -1,55 +1,138 @@
-/* LOADING SCREEN STYLING */
+/* Global Styles */
 body {
-  background-color: black;
-  color: white;
-  font-family: 'ArcadeClassic', monospace;
-  text-align: center;
-  padding: 20px;
-  overflow: hidden;
+    background-color: #2b2d42;
+    color: #f7f6e7;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.page {
-  display: none; /* All pages are hidden by default */
+header {
+    text-align: center;
+    padding: 50px 0;
 }
 
-.page.active {
-  display: block; /* Show only the active page */
+h1.glitch-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4em;
+    color: #b497bd;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 10px;
 }
 
-/* Glitchy glowing text */
-.glitch-text {
-  font-size: 28px;
-  color: #00ff00; /* Neon green */
-  text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
-  animation: fadeInOut 3s infinite alternate;
+h1.glitch-text::before,
+h1.glitch-text::after {
+    content: "Nia.404";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    color: #f1f900;
+    animation: glitch-anim 2s infinite linear alternate-reverse;
 }
 
-/* Smooth fade-in and fade-out */
-@keyframes fadeInOut {
-  0% { opacity: 0.1; }
-  50% { opacity: 1; }
-  100% { opacity: 0.1; }
+h1.glitch-text::after {
+    color: #66ff99;
+    animation: glitch-anim2 1.5s infinite linear alternate-reverse;
 }
-/* Intro Screen Styling */
-.hidden {
-  display: none;
+
+@keyframes glitch-anim {
+    0% { transform: translate(-10px, -5px); }
+    100% { transform: translate(10px, 5px); }
+}
+
+@keyframes glitch-anim2 {
+    0% { transform: translate(5px, 10px); }
+    100% { transform: translate(-5px, -10px); }
+}
+
+.tagline {
+    font-family: 'Georgia', serif;
+    font-size: 1.5em;
+    color: #f0c0b9;
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #f7f6e7;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f1f900;
+}
+
+/* Content Sections */
+.content {
+    padding: 40px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: #b497bd;
 }
 
 button {
-  background-color: black;
-  color: #00ff00;
-  border: 2px solid #00ff00;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-family: 'ArcadeClassic', monospace;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+    padding: 10px 20px;
+    background-color: #f1f900;
+    border: none;
+    color: #2b2d42;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #00ff00;
-  color: black;
-  border-color: black;
+    background-color: #66ff99;
 }
 
+/* Diary Entry */
+.diary-entry {
+    background-color: #333333;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
 
+/* 404 Error Page */
+#error-page {
+    background-color: #f7f6e7;
+    color: #2b2d42;
+    padding: 50px;
+    text-align: center;
+    font-size: 2em;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: #333333;
+    color: #f7f6e7;
+    text-align: center;
+    padding: 20px;
+    font-size: 1em;
+}
