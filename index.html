@@ -1,55 +1,230 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nia404 - Not Found</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Nia's Dreamscape - you belong here ☆
+    </title>
+    <style>
+        /* Snowflake effect styling */
+        .snowflake {
+            color: #B49BC1; /* Nia's vibe */
+            font-size: 1em;
+            font-family: Arial;
+        }
+
+        @keyframes snowflakes-fall {
+            0% { top: -10%; }
+            100% { top: 100%; }
+        }
+
+        @keyframes snowflakes-shake {
+            0% { transform: translateX(0px); }
+            50% { transform: translateX(80px); }
+            100% { transform: translateX(0px); }
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10%;
+            z-index: 9999;
+            user-select: none;
+            cursor: default;
+            animation: snowflakes-fall 10s linear infinite, snowflakes-shake 3s ease-in-out infinite;
+        }
+
+        /* Body styling */
+        body {
+            background-image: url('https://files.catbox.moe/dreamscape_background.png');
+            font-family: 'Ms Ui Gothic';
+            color: #5e5e5e;
+            font-size: 1em;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            min-height: 100vh;
+        }
+
+        /* Main content styling */
+        #main {
+            width: 1000px;
+            height: 1820px;
+            padding: 10px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            align-items: stretch;
+            border: 2px solid #d39cb5;
+            border-radius: 10px;
+            background-image: url('https://files.catbox.moe/dream_main_background.png');
+        }
+
+        header {
+            width: 800px;
+            height: 200px;
+            background-image: url('https://files.catbox.moe/sakura_header.gif');
+            display: flex;
+            flex-direction: row;
+            margin-left: 195px;
+            border: 2px ridge pink;
+        }
+
+        .headertab {
+            background: url('https://files.catbox.moe/pastel_headertab.png');
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            box-shadow: -1px -1.4px 1px inset #9e9699, 2px 3px 1.5px inset white;
+        }
+
+        h1 {
+            font-family: 'Trirong', sans-serif;
+            color: #B49BC1;
+        }
+
+        /* Button and text color updates */
+        .button {
+            background: #D6A9D0;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+            color: #E7B9CC;
+            font-size: 18px;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #C49AC9;
+        }
+
+        .cute {
+            width: 33.5%;
+            height: 53px;
+            margin-top: -100px;
+            background: url('https://files.catbox.moe/cute_background.gif');
+            border: 2px ridge pink;
+        }
+
+        .buttonbox {
+            width: 1000px;
+            min-width: 1000px;
+            height: 38px;
+            padding: 3px;
+            margin-top: 5px;
+            background: url('https://files.catbox.moe/pink_buttonbox.png');
+            box-shadow: -1px -1.4px 1px inset #9e9699, 2px 3px 1.5px inset white;
+        }
+
+        .navbox {
+            color: #A57352;
+            border-radius: 15px;
+            background: rgb(255, 211, 230);
+            background: linear-gradient(0deg, rgba(255, 211, 230, 1) 0%, rgba(255, 227, 239, 1) 60%);
+            width: 216px;
+            height: 449px;
+            margin-left: 780px;
+            margin-top: -670px;
+            padding: 15px;
+        }
+
+        .webrings {
+            width: 195px;
+            min-width: 195px;
+            height: 215px;
+            background: rgb(255, 247, 200);
+            border: 2px ridge pink;
+            padding: 15px;
+            overflow: auto;
+            border-radius: 18px;
+        }
+
+        .linkme {
+            width: 39%;
+            height: 130px;
+            border-radius: 18px;
+            background: rgb(255, 247, 200);
+            background: linear-gradient(0deg, rgba(255, 247, 200, 1) 0%, rgba(255, 250, 240, 1) 60%);
+            padding: 15px;
+            border: 2px ridge pink;
+        }
+
+        /* Additional elements like "to do" and "chatbox" styled */
+        .todo {
+            width: 40%;
+            height: 200px;
+            border-radius: 18px;
+            background: url('https://files.catbox.moe/to_do_background.png');
+            padding: 15px;
+        }
+
+        /* Footer and site description */
+        .footertab {
+            width: 101.5%;
+            height: 70px;
+            padding: 3px;
+            background: url('https://files.catbox.moe/footer_background.png');
+            border: 2px ridge pink;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
-  <div id="main-container">
     <div id="main">
-      <div class="snowflakes">
-        <div class="snowflake">✿</div>
-        <div class="snowflake">✿</div>
-        <div class="snowflake">✿</div>
-        <div class="snowflake">✿</div>
-      </div>
-
-      <header>
-        <div class="header-content">
-          <h1>Nia404</h1>
-          <p>A place where time doesn’t exist</p>
+        <div class="snowflakes">
+            <div class="snowflake">✿</div>
+            <div class="snowflake">✿</div>
+            <div class="snowflake">✿</div>
+            <div class="snowflake">✿</div>
+            <div class="snowflake">✿</div>
         </div>
-      </header>
 
-      <div class="container">
-        <div class="content">
-          <section class="diary-entry">
-            <h2>Diary Entry</h2>
-            <p>Today feels like it’s fading in and out. I couldn’t sleep last night, and I ended up sitting by the window staring at the sky. Everything felt quieter than usual.</p>
-            <p>Maybe it’s just me or maybe it’s the city. But that feeling… the one where everything doesn’t quite make sense? Yeah. I have that.</p>
-          </section>
-
-          <section class="sidebar">
-            <h3>Recent Posts</h3>
-            <ul>
-              <li><a href="#">August 12th: Lost In Time</a></li>
-              <li><a href="#">July 30th: Dreaming of Tomorrow</a></li>
-              <li><a href="#">June 15th: A Walk in Silence</a></li>
-            </ul>
-          </section>
+        <div class="headertab">
+            <h1 style="margin-top: 13px;">Nia's Dreamscape</h1>
         </div>
-      </div>
 
-      <footer>
-        <p>&copy; 2025 Nia404 | All rights reserved</p>
-      </footer>
+        <header>
+            <audio controls autoplay>
+                <source src="https://files.catbox.moe/nia_theme.mp3" type="audio/mpeg">
+            </audio>
+        </header>
 
-      <div class="footer-links">
-        <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Contact</a>
-      </div>
+        <div class="marbox">
+            <marquee><b><font color="#E7B9CC">version 1.0 Nia's Dreamscape - last updated: 22/09/25</font></b></marquee>
+        </div>
+
+        <div class="hold">
+            <div class="prbox">
+                <div class="button"><h2>Welcome to Nia's World!</h2></div>
+                <p>This is Nia's little space where dreams and stories unfold. You are always welcome here. 🦋</p>
+                <img src="https://files.catbox.moe/nia_intro.gif" width="170" height="170">
+                <img src="https://files.catbox.moe/nia_artwork.png" width="170">
+            </div>
+
+            <div class="plaidbox">
+                <div class="cont">
+                    <p>Hi! I'm Nia, a wanderer from the world of dreams! I love stories, stars, and creating beautiful worlds.</p>
+                    <p>This space is a place for me to share my interests, art, and dreams. I hope you enjoy your stay. ✨</p>
+                    <img src="https://files.catbox.moe/nia_welcome_art.png" style="float:right;">
+                </div>
+            </div>
+
+            <div class="navbox">
+                <div class="button" style="text-align:center;font-size:20px;padding:10px;">Navigation</div>
+                <div class="yellow"><img src="https://files.catbox.moe/n6y30o.png"> <a href="https://nia.neocities.org" style="text-decoration:none;">Homepage</a></div>
+                <div class="yellow"><img src="https://files.catbox.moe/n6y30o.png"> <a href="https://nia.neocities.org/about" style="text-decoration:none;">About Nia</a></div>
+                <div class="yellow"><img src="https://files.catbox.moe/n6y30o.png"> <a href="https://nia.neocities.org/blog" style="text-decoration:none;">Blog</a></div>
+            </div>
+
+            <div class="cute"></div>
+            <div class="footertab">
+                <center>Copyright © Nia's Dreamscape - Coded with love ♡</center>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 </html>
