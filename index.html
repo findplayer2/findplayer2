@@ -2,15 +2,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Nia's World - You Can Stay, I Guess ☆
-    </title>
+    <title>Nia's Retro Space - Stay or Don't ☆</title>
     <style>
-        /* Snowflakes for the vibe, because why not? */
+        /* Retro arcade aesthetic */
+        body {
+            background-color: #222;
+            font-family: 'Courier New', Courier, monospace;
+            color: #A3A3A3;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Snowflakes in the background for a chaotic feeling */
         .snowflake {
-            color: #A3A3A3; /* Muted and gray, nothing fancy */
-            font-size: 1.2em;
-            font-family: 'Arial', sans-serif;
+            color: #50FF80; /* Neon green snowflakes */
+            font-size: 2em;
+            position: fixed;
+            top: -10%;
+            z-index: 9999;
+            animation: snowflakes-fall 10s linear infinite, snowflakes-shake 2s ease-in-out infinite;
         }
 
         @keyframes snowflakes-fall {
@@ -24,156 +35,131 @@
             100% { transform: translateX(0px); }
         }
 
-        .snowflake {
-            position: fixed;
-            top: -10%;
-            z-index: 9999;
-            user-select: none;
-            cursor: default;
-            animation: snowflakes-fall 10s linear infinite, snowflakes-shake 3s ease-in-out infinite;
-        }
-
-        /* Body - Nothing too cheerful, just vibes */
-        body {
-            background-image: url('https://files.catbox.moe/empty_dark_background.png');
-            font-family: 'Arial', sans-serif;
-            color: #BBBBBB; /* Gray mood */
-            font-size: 1.2em;
-            line-height: 1.6;
+        /* Central content area */
+        #main {
+            width: 100%;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: start;
-            align-items: start;
-            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: #111;
         }
 
-        /* Main container */
-        #main {
-            width: 1000px;
-            height: 1820px;
-            padding: 10px;
-            margin: auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: start;
-            align-items: stretch;
-            border: 2px solid #B3B3B3;
-            border-radius: 10px;
-            background-image: url('https://files.catbox.moe/grungy_texture.png');
-        }
-
+        /* Header section */
         header {
-            width: 800px;
-            height: 200px;
-            background-image: url('https://files.catbox.moe/grunge_header.gif');
-            display: flex;
-            flex-direction: row;
-            margin-left: 195px;
-            border: 2px ridge #A3A3A3;
-        }
-
-        .headertab {
-            background: url('https://files.catbox.moe/dark_header.png');
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-            box-shadow: -1px -1.4px 1px inset #9e9699, 2px 3px 1.5px inset white;
-        }
-
-        h1 {
-            font-family: 'Arial', sans-serif;
-            color: #A3A3A3;
-            text-transform: uppercase;
-        }
-
-        .button {
-            background: #707070; /* Ashy tones */
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            background-color: #440A6F; /* Deep purple for the banner */
+            padding: 40px 0;
+            text-align: center;
             color: #E7B9CC;
-            font-size: 18px;
-            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #E7B9CC;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px #50FF80; /* Glowing green effect */
+            margin: 0;
+        }
+
+        header h2 {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #BBBBBB;
+        }
+
+        /* Navigation bar */
+        .nav {
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #E7B9CC;
+            font-size: 1.2em;
+            margin: 0 20px;
+            padding: 10px;
             border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: #50FF80;
+            color: #222;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Main content box */
+        .content {
+            width: 80%;
+            max-width: 1000px;
+            background-color: #222;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6);
+            color: #D1FFAF;
+        }
+
+        .content h3 {
+            color: #50FF80; /* Green text for impact */
+            font-size: 2em;
+        }
+
+        .content p {
+            font-size: 1.1em;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        /* Buttons for chaos and interaction */
+        .button {
+            background: #50FF80;
+            color: #222;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
         }
 
         .button:hover {
-            background: #505050;
+            background-color: #44A55A;
         }
 
-        .cute {
-            width: 33.5%;
-            height: 53px;
-            margin-top: -100px;
-            background: url('https://files.catbox.moe/deadpan_image.gif');
-            border: 2px ridge #707070;
+        /* Footer section */
+        footer {
+            background-color: #440A6F;
+            padding: 20px 0;
+            color: #BBBBBB;
+            text-align: center;
+            margin-top: 30px;
         }
 
-        .buttonbox {
-            width: 1000px;
-            min-width: 1000px;
-            height: 38px;
-            padding: 3px;
-            margin-top: 5px;
-            background: url('https://files.catbox.moe/ash_button_background.png');
-            box-shadow: -1px -1.4px 1px inset #9e9699, 2px 3px 1.5px inset white;
+        footer a {
+            color: #50FF80;
+            text-decoration: none;
         }
 
-        .navbox {
-            color: #A57352;
-            border-radius: 15px;
-            background: rgb(200, 211, 230);
-            background: linear-gradient(0deg, rgba(200, 211, 230, 1) 0%, rgba(215, 227, 239, 1) 60%);
-            width: 216px;
-            height: 449px;
-            margin-left: 780px;
-            margin-top: -670px;
-            padding: 15px;
+        footer a:hover {
+            text-decoration: underline;
         }
-
-        .webrings {
-            width: 195px;
-            min-width: 195px;
-            height: 215px;
-            background: rgb(220, 247, 200);
-            border: 2px ridge #707070;
-            padding: 15px;
-            overflow: auto;
-            border-radius: 18px;
-        }
-
-        .linkme {
-            width: 39%;
-            height: 130px;
-            border-radius: 18px;
-            background: rgb(220, 247, 200);
-            background: linear-gradient(0deg, rgba(220, 247, 200, 1) 0%, rgba(225, 250, 240, 1) 60%);
-            padding: 15px;
-            border: 2px ridge #707070;
-        }
-
-        .todo {
-            width: 40%;
-            height: 200px;
-            border-radius: 18px;
-            background: url('https://files.catbox.moe/empty_mood.png');
-            padding: 15px;
-        }
-
-        .footertab {
-            width: 101.5%;
-            height: 70px;
-            padding: 3px;
-            background: url('https://files.catbox.moe/dark_footer.png');
-            border: 2px ridge #707070;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-        }
-
+        
     </style>
 </head>
 
 <body>
     <div id="main">
+        <!-- Snowflakes for that chaotic aesthetic -->
         <div class="snowflakes">
             <div class="snowflake">✿</div>
             <div class="snowflake">✿</div>
@@ -182,48 +168,35 @@
             <div class="snowflake">✿</div>
         </div>
 
-        <div class="headertab">
-            <h1 style="margin-top: 13px;">Nia's World</h1>
-        </div>
-
+        <!-- Header Section -->
         <header>
-            <audio controls autoplay>
-                <source src="https://files.catbox.moe/nia_theme_grief.mp3" type="audio/mpeg">
-            </audio>
+            <h1>Nia's Retro Space</h1>
+            <h2>The World You Thought You Knew, Now In Pixels</h2>
         </header>
 
-        <div class="marbox">
-            <marquee><b><font color="#707070">version 1.0, Nia's space - last updated: 22/09/25</font></b></marquee>
+        <!-- Navigation Bar -->
+        <div class="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
         </div>
 
-        <div class="hold">
-            <div class="prbox">
-                <div class="button"><h2>Welcome to Nia's Lair</h2></div>
-                <p>Maybe you're just passing through, maybe you're lost, either way—this is Nia's corner. Don't expect much, but you can stay.</p>
-                <img src="https://files.catbox.moe/nia_intro_dark.gif" width="170" height="170">
-                <img src="https://files.catbox.moe/nia_artwork_gray.png" width="170">
-            </div>
+        <!-- Main Content -->
+        <div class="content">
+            <h3>Welcome to Nia's World</h3>
+            <p>If you're lost or stuck in a loop, you've found the right place. It's not bright, it's not sunny, but it’s definitely... real.</p>
+            <p>I don't do the whole "happy-go-lucky" thing. But if you can deal with the awkwardness, you're welcome to stay.</p>
 
-            <div class="plaidbox">
-                <div class="cont">
-                    <p>Nia. Just Nia. I don't really know why you're here, but welcome I guess. Just don't expect any happy endings.</p>
-                    <p>I'm tired, but still trying to figure things out. If you're like me, you'll understand. If not, you're free to leave.</p>
-                    <img src="https://files.catbox.moe/nia_dark_gray_art.png" style="float:right;">
-                </div>
-            </div>
-
-            <div class="navbox">
-                <div class="button" style="text-align:center;font-size:20px;padding:10px;">Navigation</div>
-                <div class="yellow"><img src="https://files.catbox.moe/n6y30o.png"> <a href="https://nia.neocities.org" style="text-decoration:none;">Homepage</a></div>
-                <div class="yellow"><img src="https://files.catbox.moe/n6y30o.png"> <a href="https://nia.neocities.org/about" style="text-decoration:none;">About Nia</a></div>
-                <div class="yellow"><img src="https://files.catbox.moe/n6y30o.png"> <a href="https://nia.neocities.org/blog" style="text-decoration:none;">Blog</a></div>
-            </div>
-
-            <div class="cute"></div>
-            <div class="footertab">
-                <center>Copyright © Nia's World - Coded in Grief and Chaos</center>
-            </div>
+            <button class="button">Join the Chaos</button>
         </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Nia's Retro Space. All Rights Reserved.</p>
+            <p><a href="https://www.neocities.org" target="_blank">Powered by Neocities</a></p>
+        </footer>
     </div>
 </body>
+
 </html>
