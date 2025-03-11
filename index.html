@@ -3,14 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Nia's Dreamscape - you belong here ☆
+        Nia's World - You Can Stay, I Guess ☆
     </title>
     <style>
-        /* Snowflake effect styling */
+        /* Snowflakes for the vibe, because why not? */
         .snowflake {
-            color: #B49BC1; /* Nia's vibe */
-            font-size: 1em;
-            font-family: Arial;
+            color: #A3A3A3; /* Muted and gray, nothing fancy */
+            font-size: 1.2em;
+            font-family: 'Arial', sans-serif;
         }
 
         @keyframes snowflakes-fall {
@@ -20,7 +20,7 @@
 
         @keyframes snowflakes-shake {
             0% { transform: translateX(0px); }
-            50% { transform: translateX(80px); }
+            50% { transform: translateX(40px); }
             100% { transform: translateX(0px); }
         }
 
@@ -33,13 +33,13 @@
             animation: snowflakes-fall 10s linear infinite, snowflakes-shake 3s ease-in-out infinite;
         }
 
-        /* Body styling */
+        /* Body - Nothing too cheerful, just vibes */
         body {
-            background-image: url('https://files.catbox.moe/dreamscape_background.png');
-            font-family: 'Ms Ui Gothic';
-            color: #5e5e5e;
-            font-size: 1em;
-            line-height: 1.5;
+            background-image: url('https://files.catbox.moe/empty_dark_background.png');
+            font-family: 'Arial', sans-serif;
+            color: #BBBBBB; /* Gray mood */
+            font-size: 1.2em;
+            line-height: 1.6;
             display: flex;
             flex-direction: column;
             justify-content: start;
@@ -47,7 +47,7 @@
             min-height: 100vh;
         }
 
-        /* Main content styling */
+        /* Main container */
         #main {
             width: 1000px;
             height: 1820px;
@@ -57,36 +57,36 @@
             flex-wrap: wrap;
             justify-content: start;
             align-items: stretch;
-            border: 2px solid #d39cb5;
+            border: 2px solid #B3B3B3;
             border-radius: 10px;
-            background-image: url('https://files.catbox.moe/dream_main_background.png');
+            background-image: url('https://files.catbox.moe/grungy_texture.png');
         }
 
         header {
             width: 800px;
             height: 200px;
-            background-image: url('https://files.catbox.moe/sakura_header.gif');
+            background-image: url('https://files.catbox.moe/grunge_header.gif');
             display: flex;
             flex-direction: row;
             margin-left: 195px;
-            border: 2px ridge pink;
+            border: 2px ridge #A3A3A3;
         }
 
         .headertab {
-            background: url('https://files.catbox.moe/pastel_headertab.png');
+            background: url('https://files.catbox.moe/dark_header.png');
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
             box-shadow: -1px -1.4px 1px inset #9e9699, 2px 3px 1.5px inset white;
         }
 
         h1 {
-            font-family: 'Trirong', sans-serif;
-            color: #B49BC1;
+            font-family: 'Arial', sans-serif;
+            color: #A3A3A3;
+            text-transform: uppercase;
         }
 
-        /* Button and text color updates */
         .button {
-            background: #D6A9D0;
+            background: #707070; /* Ashy tones */
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
             color: #E7B9CC;
             font-size: 18px;
@@ -97,15 +97,15 @@
         }
 
         .button:hover {
-            background: #C49AC9;
+            background: #505050;
         }
 
         .cute {
             width: 33.5%;
             height: 53px;
             margin-top: -100px;
-            background: url('https://files.catbox.moe/cute_background.gif');
-            border: 2px ridge pink;
+            background: url('https://files.catbox.moe/deadpan_image.gif');
+            border: 2px ridge #707070;
         }
 
         .buttonbox {
@@ -114,15 +114,15 @@
             height: 38px;
             padding: 3px;
             margin-top: 5px;
-            background: url('https://files.catbox.moe/pink_buttonbox.png');
+            background: url('https://files.catbox.moe/ash_button_background.png');
             box-shadow: -1px -1.4px 1px inset #9e9699, 2px 3px 1.5px inset white;
         }
 
         .navbox {
             color: #A57352;
             border-radius: 15px;
-            background: rgb(255, 211, 230);
-            background: linear-gradient(0deg, rgba(255, 211, 230, 1) 0%, rgba(255, 227, 239, 1) 60%);
+            background: rgb(200, 211, 230);
+            background: linear-gradient(0deg, rgba(200, 211, 230, 1) 0%, rgba(215, 227, 239, 1) 60%);
             width: 216px;
             height: 449px;
             margin-left: 780px;
@@ -134,8 +134,8 @@
             width: 195px;
             min-width: 195px;
             height: 215px;
-            background: rgb(255, 247, 200);
-            border: 2px ridge pink;
+            background: rgb(220, 247, 200);
+            border: 2px ridge #707070;
             padding: 15px;
             overflow: auto;
             border-radius: 18px;
@@ -145,31 +145,30 @@
             width: 39%;
             height: 130px;
             border-radius: 18px;
-            background: rgb(255, 247, 200);
-            background: linear-gradient(0deg, rgba(255, 247, 200, 1) 0%, rgba(255, 250, 240, 1) 60%);
+            background: rgb(220, 247, 200);
+            background: linear-gradient(0deg, rgba(220, 247, 200, 1) 0%, rgba(225, 250, 240, 1) 60%);
             padding: 15px;
-            border: 2px ridge pink;
+            border: 2px ridge #707070;
         }
 
-        /* Additional elements like "to do" and "chatbox" styled */
         .todo {
             width: 40%;
             height: 200px;
             border-radius: 18px;
-            background: url('https://files.catbox.moe/to_do_background.png');
+            background: url('https://files.catbox.moe/empty_mood.png');
             padding: 15px;
         }
 
-        /* Footer and site description */
         .footertab {
             width: 101.5%;
             height: 70px;
             padding: 3px;
-            background: url('https://files.catbox.moe/footer_background.png');
-            border: 2px ridge pink;
+            background: url('https://files.catbox.moe/dark_footer.png');
+            border: 2px ridge #707070;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
         }
+
     </style>
 </head>
 
@@ -184,32 +183,32 @@
         </div>
 
         <div class="headertab">
-            <h1 style="margin-top: 13px;">Nia's Dreamscape</h1>
+            <h1 style="margin-top: 13px;">Nia's World</h1>
         </div>
 
         <header>
             <audio controls autoplay>
-                <source src="https://files.catbox.moe/nia_theme.mp3" type="audio/mpeg">
+                <source src="https://files.catbox.moe/nia_theme_grief.mp3" type="audio/mpeg">
             </audio>
         </header>
 
         <div class="marbox">
-            <marquee><b><font color="#E7B9CC">version 1.0 Nia's Dreamscape - last updated: 22/09/25</font></b></marquee>
+            <marquee><b><font color="#707070">version 1.0, Nia's space - last updated: 22/09/25</font></b></marquee>
         </div>
 
         <div class="hold">
             <div class="prbox">
-                <div class="button"><h2>Welcome to Nia's World!</h2></div>
-                <p>This is Nia's little space where dreams and stories unfold. You are always welcome here. 🦋</p>
-                <img src="https://files.catbox.moe/nia_intro.gif" width="170" height="170">
-                <img src="https://files.catbox.moe/nia_artwork.png" width="170">
+                <div class="button"><h2>Welcome to Nia's Lair</h2></div>
+                <p>Maybe you're just passing through, maybe you're lost, either way—this is Nia's corner. Don't expect much, but you can stay.</p>
+                <img src="https://files.catbox.moe/nia_intro_dark.gif" width="170" height="170">
+                <img src="https://files.catbox.moe/nia_artwork_gray.png" width="170">
             </div>
 
             <div class="plaidbox">
                 <div class="cont">
-                    <p>Hi! I'm Nia, a wanderer from the world of dreams! I love stories, stars, and creating beautiful worlds.</p>
-                    <p>This space is a place for me to share my interests, art, and dreams. I hope you enjoy your stay. ✨</p>
-                    <img src="https://files.catbox.moe/nia_welcome_art.png" style="float:right;">
+                    <p>Nia. Just Nia. I don't really know why you're here, but welcome I guess. Just don't expect any happy endings.</p>
+                    <p>I'm tired, but still trying to figure things out. If you're like me, you'll understand. If not, you're free to leave.</p>
+                    <img src="https://files.catbox.moe/nia_dark_gray_art.png" style="float:right;">
                 </div>
             </div>
 
@@ -222,7 +221,7 @@
 
             <div class="cute"></div>
             <div class="footertab">
-                <center>Copyright © Nia's Dreamscape - Coded with love ♡</center>
+                <center>Copyright © Nia's World - Coded in Grief and Chaos</center>
             </div>
         </div>
     </div>
